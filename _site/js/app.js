@@ -50,8 +50,14 @@
         return o;
     });
 
+
+
+
+
+
+
       fmonth(features);
-      $('#map').removeClass('loading');
+       $('#map').removeClass('loading');
 
     }
 
