@@ -42,11 +42,7 @@
           interaction.formatter(function(feature) {
         var o = '<h3>' + feature.properties.title + '</h3>' +
             '<strong>' + feature.properties.description + '</strong>' +
-            '<p>' + feature.properties.date + '</p>' +
-            '<p>' + feature.properties.day + '</p>' +
-            '<p>' + feature.properties.month + '</p>' +
-            '<p>' + feature.properties.year + '</p>' ;
-
+            '<p>' + feature.properties.date + '</p>';
         return o;
     });
 
@@ -67,14 +63,23 @@ function newMarker() {
 
 function fmonth(f){
     var aMonth=[];
+      //format date  dd/MM/yyyy from googlespretsheet
      _.each(f, function(value, key) {
-            //alert(f[key].properties.month);
-            aMonth.push(f[key].properties.month);
+      //change data formata dd/MM/yyyy to MM/dd/yyyyy
+      var datearray = f[key].properties.date.split("/");
+      //var newdate = datearray[1] + '/' + datearray[0] + '/' + datearray[2]; //atearray[1]=month
+      aMonth.push(datearray[1]);
+      //alert(datearray[1]);
      });
 
-    Array.prototype.unique=function(a){return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0});
+//elimina elementos duplicados del array
+    Array.prototype.unique=function(a){
+      return function(){
+        return this.filter(a)}}(function(a,b,c){
+          return c.indexOf(a,b+1)<0
+          });
+
     aMonth=aMonth.unique();
-    //alert(aMonth.length);
     var monthNames = [
             'Enero',
             'Fefrero',
@@ -89,9 +94,7 @@ function fmonth(f){
             'Noviembre',
             'Diciembre'
         ];
-
         var parent = document.getElementById("list_months");
-
         for (var i = 0; i< aMonth.length; i++)
         {
         var new_li = document.createElement("li");
@@ -99,9 +102,6 @@ function fmonth(f){
         parent.appendChild(new_li);
 
         }
-
-
-
 }
 
 
@@ -110,9 +110,6 @@ function fmonth(f){
 
 
 $('#filter-all').click(function(){
-
-
-
         /*food.className = '';
           this.className = 'active';*/
           markerLayer.filter(function(features) {
@@ -122,38 +119,48 @@ $('#filter-all').click(function(){
           return false;
       });
 
-$('#filter_Octubre1').click(function(){
 
 
-         /*all.className = '';
+
+
+
+$('#list_months').on('click', 'li', function(e) {
+
+
+switch(e.target.id ){
+case "filter-all":
+            /*food.className = '';
           this.className = 'active';*/
-          // The filter function takes a GeoJSON feature object
-          // and returns true to show it or false to hide it.
-          markerLayer.filter(function(features) {  return features.properties['month'] === '10'; });
+          markerLayer.filter(function(features) {
+              // Returning true for all markers shows everything.
+              return true;
+          });
           return false;
+     
+break;
+case "filter_Octubre":
+      markerLayer.filter(function(features) {  var arraydate = features.properties['date'].split("/");
+                                              return arraydate[1]=== '10';
+                                            });
+      return false;
+break;
+case "filter_Noviembre":
+      markerLayer.filter(function(features) {  var arraydate = features.properties['date'].split("/");
+                                               return arraydate[1]=== '11';
+                                             });
+      return false;
+      
+break;
+case "filter_Diciembre":
+      markerLayer.filter(function(features) {  var arraydate = features.properties['date'].split("/");
+                                               return arraydate[1]=== '12';
+                                            });
+      return false;
+break;
+}
+
 });
 
-$('#filter_Noviembre1').click(function(){
-
-
-         /*all.className = '';
-          this.className = 'active';*/
-          // The filter function takes a GeoJSON feature object
-          // and returns true to show it or false to hide it.
-          markerLayer.filter(function(features) {  return features.properties['month'] === '11'; });
-          return false;
-});
-
-$('#filter_Diciembre1').click(function(){
-
-
-         /*all.className = '';
-          this.className = 'active';*/
-          // The filter function takes a GeoJSON feature object
-          // and returns true to show it or false to hide it.
-          markerLayer.filter(function(features) {  return features.properties['month'] === '12'; });
-          return false;
-});
 
 
 });

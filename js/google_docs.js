@@ -57,9 +57,9 @@ function mmg_google_docs(id, callback) {
                             'title': 'Delito: ' + entry['gsx$delito'].$t,
                             'description': 'Descripcion: ' + entry['gsx$descricióndeldelito'].$t,  
                             'date': 'Fecha: ' + entry['gsx$fecha'].$t,
-                            'day': 'Dia: ' + entry['gsx$day'].$t,
-                            'month': 'Mes: ' + entry['gsx$month'].$t, 
-                            'year': 'Año: ' + entry['gsx$year'].$t,                        
+                            //'day': 'Dia: ' + entry['gsx$day'].$t,
+                           // 'month': 'Mes: ' + entry['gsx$month'].$t, 
+                            //'year': 'Año: ' + entry['gsx$year'].$t,                        
                            
 
                                  }
