@@ -9,7 +9,7 @@
      
         var map = mapbox.map('map');
         map.addLayer(mapbox.layer().id('ruben.mapa_seguridadciudadana'));
-        mmg_google_docs('0AhfXukqwpMbidEhMaWJESFJSS3VKeXhGWW5GZlpqQXc',mapData);
+        mmg_google_docs('',mapData);
 
         map.centerzoom({
           lat: -13.16048,
