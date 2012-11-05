@@ -1,23 +1,169 @@
-#block{
-	
-	bottom:  0px;
-	background-color: #ddd;
-	height: 500px;
-	left: 0px;
-	position: absolute;
-	width: 200px;
-	z-index: 2;
+body {
+  background-color: #fff;
+  font: 14px/20px Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0; 
+  }
+
+
+/*-----------------------------------
+  Typography
+-------------------------------------*/
+
+@font-face {
+  font-family: 'AlternateGothicLTNo3Regular';
+  src: url('../fonts/alternate_gothic-webfont.eot');
+  src: url('../fonts/alternate_gothic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/alternate_gothic-webfont.woff') format('woff'),
+    url('../fonts/alternate_gothic-webfont.ttf') format('truetype'),
+    url('../fonts/alternate_gothic-webfont.svg#AlternateGothicLTNo3Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+h1,h2,h3,h4,h5 {
+  font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+  }
+
+  .marker-popup h3{
+    color: #000;
+  }
+
+h1 { font-size: 30px; line-height: 32px; margin: 0 0 5px; }
+h2 { font-size: 30px; line-height: 32px; margin: 0 0 5px; }
+h3 { font-size: 24px; line-height: 28px; margin: 10px 0; }
+h4 { font-size: 20px; line-height: 24px; margin: 10px 0; }
+h5 { font-size: 18px; line-height: 18px; margin: 10px 0; }
+h6 { font-size: 14px; line-height: 18px; margin: 0 0 10px; }
+
+a {
+  color: #fff;
+  text-decoration: none;
+  }
+
+/*-----------------------------------
+  Masthead + Header
+-------------------------------------*/
+#masthead {
+  background-color: #ccc;
+  height: 82px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 5;
+}
+
+#header{
+  height: 40px;
+  width: 100%;
+  -moz-box-shadow: 0 0 5px #999;
+  -webkit-box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px #999;
+  -moz-transition: top 0.5s ease;
+  -o-transition: top 0.5s ease;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
 
 }
 
+#header h1{
+  line-height: 46px;
+  margin-left: 150px;
+  font-size: 46px;
+  float: left;
+}
 
+#header h1 span{
+  color: #BA003F;
+}
 
+#header h2{
+  color:#40404B;
+  float: left;
+  line-height: 46px;
+  margin-left: 50px;
+}
+
+/*-----------------------------------
+ Horizontal menu
+-------------------------------------*/
+
+#menu_type_incident{
+  background-image: url(../images/img-header.png);
+  height: 42px;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  right: 0;
+  top: 42px;
+  z-index: 7;
+  -moz-box-shadow: 0 0 5px #999;
+  -webkit-box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px #999;
+  -moz-transition: top 0.5s ease;
+  -o-transition: top 0.5s ease;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+}
+
+#ul_menu_type_incident{
+  background-color: #292929;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  width: 960px;  
+}
+
+#ul_menu_type_incident li { 
+  display: block;
+  float: left;
+}
+
+#ul_menu_type_incident li a {
+  background-color: ##292929;
+  color: #fff;
+  display: block;
+  height: 40px;
+  width: 137.1px;
+  transition-duration:1s;
+  -moz-transition-duration:1s;
+  -webkit-transition-duration:1s;
+  -o-transition-duration:1s;
+}
+
+#ul_menu_type_incident li a:hover{
+  background-color: #171717;
+  color: #fff;
+}
+
+#ul_menu_type_incident li a.active{
+  background-color: #171717;
+  color: #fff;
+}
+
+/*-----------------------------------
+Map
+-------------------------------------*/
+
+#map {
+  background-color: #2D2A2A;
+  height: 680px;
+  position:absolute; 
+  top:0; 
+  width:100%; 
+  }
 
 .loading {
   position: relative;
-  }
+}
+
 .loading:after {
-  content: "Loading...";
+  content: "Cargando...";
   position: absolute;
   font-size: 12px;
   top: 50%;
@@ -31,6 +177,7 @@
   line-height: 16px;
   color: #666;
   }
+
 #map.loading:after {
   background-color: #333;
   background-color: rgba(0,0,0,0.75);
@@ -41,4 +188,366 @@
   border-radius: 10px;
   z-index: 999999;
   position: absolute;
+}
+
+/*-----------------------------------
+vertical Block for horizontal menu month
+-------------------------------------*/
+#menu_month{
+  background:#ddd;
+  border-bottom: 5px solid #BA003F;
+  height: 40px;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 680px;
+  z-index: 7;
+}
+
+#ul_menu_month{
+  background-color: #ddd;
+  color: #fff;
+  height: 40px;
+  line-height: 42px;
+  width: 1100px;  
+}
+
+#ul_menu_month li { 
+  display: block;
+  float: left;
+}
+
+#ul_menu_month li a {
+  background-color: #ddd;
+  display: block;
+  color: #fff;
+  height: 40px;
+  width: 84.6px;
+  color: #2E3546; 
+}
+
+#ul_menu_month li a:hover{
+  background-color: #171717;
+  color: #fff;
+}
+
+#ul_menu_month li a.active{
+  background-color: #171717;
+  color: #fff;
+  transform:translate(5px,0px);
+  -moz-transform:translate(5px,0px);
+  -webkit-transform:translate(5px,0px);
+  -o-transform:translate(5px,0px);
+}
+
+/*-----------------------------------
+middle content
+-------------------------------------*/
+#middle_content{
+  background-color: #fff;
+  height : 925px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 720px;
+  width: 1100px; 
+  z-index: 6;
+}
+
+#middle_content  a{
+  color: #005C9C;
+}
+
+/*-----------------------------------
+Block  for description  "Incidentes Delictivos en Ayacucho"
+-------------------------------------*/
+#block_text_desription{
+  background-color: #ECECEC;
+  height: 500px;
+  width: 300px;
+  float: left;  
+   -moz-box-shadow: 0 0 3px 3px #ddd;
+  -webkit-box-shadow: 0 0 3px 3px#ddd;
+  box-shadow: 0 0 3px 3px #ddd;
+
+}
+
+#block_text_desription h3{
+  color: #005C9C;
+  margin: 5px 3px 3px 3px;
+}
+
+
+#block_text_desription p{ /*justify in both block*/
+  color: #282828;
+  line-height: 30px;
+  padding: 3px 10px;
+  text-align: justify;
+  width: 280px;
+}
+
+
+/*-----------------------------------
+Block  for show the statistic box 
+-------------------------------------*/
+
+#block_statistic{
+  float: left;
+  height: 500px;  
+  width: 460px;
+}
+
+#img_total_percentage{
+  float: left;
+  height: 500px;  
+  margin-left: -130px;
+  margin-top: -60px;
+  width: 800px;
+}
+
+#title_statistic {
+  color: #000;
+  font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
+  font-size: 30px;
+  left: 15px;
+  position: relative;
+  top: 20px;
+  z-index: 8px;
+}
+
+#num-incident{
+  color: #005C9C;
+  font-size: 100px;
+  font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
+  left: 360px;
+  position: absolute;
+  top: 440px;
+  z-index: 9;
+
+}
+
+
+/*-----------------------------------
+Block  for description OPEN DATA
+-------------------------------------*/
+
+#block_opendata{
+  background: #ECECEC;
+  height: 500px;
+  float: right;
+  margin-left: 40px;
+  width: 300px;
+ -moz-box-shadow: 0 0 3px 3px #ddd;
+  -webkit-box-shadow: 0 0 3px 3px#ddd;
+  box-shadow: 0 0 3px 3px #ddd;
+}
+
+#block_opendata  h3{
+  color: #005C9C;
+  margin: 10px 3px 3px 3px;
+}
+
+#block_opendata p {   
+  color: #282828;
+  line-height: 30px;
+  padding: 3px 10px;
+  text-align: justify;
+  width: 280px;
+}
+
+/*-----------------------------------
+block for estatistic for month 
+-------------------------------------*/
+
+#arrow_show_block{
+    background-image: url(../images/row.png);
+    height: 36px;
+    margin: 0 auto;
+    position: absolute;
+    top: 644px;
+    left: 0;
+    right: 0;
+    width: 74px;
+    z-index: 99;
+}
+
+#arrow_show_block a{
+  display: block;
+  height: 36px;
+  width: 74px;
+}
+
+.statistic_by_month{  
+  background: #fff;
+  display: none;
+  height:300px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: -340px;
+  width: 1100px;
+  z-index: 6;
+  /*opacity: 0.9;*/
+ -moz-box-shadow: 0 0 3px 3px #ddd;
+  -webkit-box-shadow: 0 0 3px 3px#ddd;
+  box-shadow: 0 0 3px 3px #ddd;
+}
+
+
+#id_close {
+  background: #ddd;  
+  display: none;
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  top: -340px;
+  right: 0px;
+  text-align: center;
+  width: 20px;
+  z-index: 7;
+  -moz-box-shadow:    0 0 3px #ddd;
+  -webkit-box-shadow: 0 0 3px #ddd;
+  box-shadow:         0 0 3px #ddd;
+}
+
+
+/*-----------------------------------
+Block for sow Incident  table
+-------------------------------------*/
+#block_incident_table{
+  position: absolute;
+  left: 0;
+  top: 510px;
+  background: #fff;
+  height: 500px;
+  width: 800px;
+  z-index: 10px;
+}
+
+#block_downloads{
+  position: absolute;
+  right: 0;
+  top: 510px;
+  background: #fff;
+  height: 500px;
+  width: 300px;
+  z-index: 10;
+}
+
+/*-----------------------------------
+  Downloads Section
+-------------------------------------*/
+a.button {
+  font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 21px;
+  display: block;
+  text-align: center;
+  font-weight: 100;
+  width: 195px;
+  height: 50px;
+  line-height: 50px;
+  background: #282828;
+  -moz-transition: all 0.3s ease-out;  /* FF4+ */
+  -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+  -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+  transition: all 0.3s ease-out;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
+  box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
+  margin-top: 15px;
+  font-weight: normal!important;
   }
+a.button:hover {
+  background-color: #000;
+  }
+
+#downloads {
+  /*background: #fff;*/
+  margin-top: 35px;
+  }
+#downloads .col {
+  min-height: 170px;
+  height: auto!important;
+  height: 170px;
+  padding: 20px 10px;
+  }
+#downloads .copy {
+  width: 200px;
+  padding: 20px 20px 0;
+  }
+.copy a {
+  font-weight: bold;
+  color: #005C9C;
+  }
+#downloads .dl {
+  width: 319px;
+  border-left: 1px dotted white;
+  padding: 20px 0 10px 20px;
+  }
+#downloads .dl a {
+  font-weight: bold;
+  }
+#downloads .dl p.details {
+  display: block;
+  margin-left: 90px;
+  font-size: 11px;
+  line-height: 16px;
+  margin-right: 40px;
+  margin-top: 54px;
+  padding-top: 20px;
+  color: #000;
+  }
+#downloads .limiter div {
+  float: left;
+  }
+#downloads .dl-map,
+#downloads .dl-data {
+  background: url(../images/sprite.png) no-repeat -425px -120px;
+  width: 80px;
+  height: 20px;
+  display: block;
+  font-weight: bold;
+  padding-top: 75px;
+  text-align: center;
+  }
+#downloads .dl-map {
+  background-position: -425px -5px;
+  }
+
+/*-----------------------------------
+footer
+-------------------------------------*/
+
+#footer{
+background-color: #2F2F2F;
+border-top: 5px solid #ddd;
+height : 100px;
+left: 0;
+margin: 0 auto;
+position: absolute;
+padding-top: 80px;
+right: 0;
+/*top: 1680px;*/
+top: 1650px;
+width: 100%; 
+z-index: 6;
+
+}
+
+#footer span{
+  height: 150px;
+  color: #989898;
+  padding-top: 80px;
+  margin-left: 350px;
+  
+}
+
+

@@ -1,35 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <title>Incidentes Ayacucho</title>
-<link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.css' rel='stylesheet' />
-<link href='css/map.css' rel='stylesheet' />
-<link href='css/style.css' rel='stylesheet' />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Incidentes Ayacucho</title>
+        <link type='text/css' href='css/mapbox.css' rel='stylesheet' />
+        
+  <link rel='stylesheet' href='css/reset.css' type='text/css'  />
+      <link  type='text/css' href='css/style.css' rel='stylesheet' />
+      <link  type='text/css' href='css/table.css' rel='stylesheet' />
                                                                         
 </head>
-<body>
-  <div id="map" class="loading"></div>
-  <div id="block">
-    <span>Delitos Clasificados por Fechas</span>
-    <ul id="list_months">
-       <li><a href='#' class='active' id='filter-all'>Mostrar Todos</a></li>
-     </ul>
-  </div>
-  
-  <!-- scripts-->
 
-  <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
-  <script src="js/jquery.min.js"></script>
-  
-  <script src="js/underscore-min.js"></script>
+<body>
+  <div id='masthead'>
+    <div id='header'>
+        <h1><span>Seg</span>Ayac</h1>
+        <h2>Mejorando la Seguridad ciudadana en Ayacucho</h2>
+    </div>
+   <!-- bloque para seleccin por tipo de incidentes-->
+    <div align="center" id="menu_type_incident" >
+      <ul id="ul_menu_type_incident">
+          <li><a href='#' class='active' id='all-incident'>Todos Incidentes</a></li>
+          <li><a id="Robo" name="1" href="#">Robo</a></li>
+          <li><a id="Intento_de_Robo" name="2" href="#">Intento de Robo</a></li>
+          <li><a id="Agresión" name="3" href="#">Agresión</a></li>
+          <li><a id="Accidente" name="4" href="#">Accidentes</a></li>
+          <li><a id="Violencia_Familiar" name="5" href="#">Violencia Familiar</a></li>
+          <li><a id="Otros" name="6" href="#">Otros</a></li>
+
+      </ul>
+    </div>
+
+  </div>
+
+  <div id="map" class="loading"></div>
+   
+   <div align="center" id="arrow_show_block"><a href="#">X</a></div>
+
+
+  <div align="center" id="menu_month" >
+    <ul id="ul_menu_month">
+      <li>
+        <a href='#' class='active' id='filter-all'>Todos</a>
+      </li>
+    </ul>
+  </div>
+
+  <div align="center" id="middle_content">
+
+    <a id="id_close" href="#">X</a> 
+
+    <div class='statistic_by_month' id="all-incident_statistic">
+    </div>
+      
+
+    <div id="block_text_desription">
+
+      <h3>Incidentes Delictivos en Ayacucho</h3>
+      <p> Actualmente la ciudad de Humanga Ayacucho se encuentra a  en una situación donde los incidentes delictivos son  un actividad cotidiana,  la  Sub Gerencia de Seguridad ciudadana encargado de la seguridad en la  ciudad de Huamanga pone a disposición sus datos, para el conocimiento de la sociedad, este para  prevenir ciertos incidentes futuros en  ciertos lugares de la ciudad. 
+      El mapa de arriba muestra  los puntos donde se realizaron los incidentes delictivos, estos datos son recolectados, ingresados  y publkicados por la sub Gerencia  de Seguridad Ciudadana con la  iniciativa de Datos Abiertos.
+      </p>
+    </div>
+
+    <div id="block_statistic" class="loading">
+      <div id="title_statistic">Porcentaje total de incidentes </div>
+      <div id="img_total_percentage"></div>
+      
+      <div id="num-incident"></div>
+
+    </div>
+
+    <div id="block_opendata">
+      <h3>Datos Abiertos</h3>
+      <p>Este sitio web representa un ejemplo de lo que es posible hacer con datos abiertos. Existe muchos datos públicos y con toda esta información hay oportunidades para encontrar soluciones innovadoras a los retos que enfrenta los gobiernos y sus ciudadanos. A más disponibilidad de datos abiertos, hay más posibilidades de de obtener soluciones informática, ayudas, etc. Con los cuales se ayuda al futuro de la comunidad. Esta primera solución informática con datos abiertos, tuvo como herramientas para su desarrollo</p>
+    </div>
+
+    
+    <div id="block_incident_table">
+
+     <div id="dynamicTable">
+      </div>
+
+
+    </div>
+    <div id="block_downloads">
+      <div id='downloads' class='clearfix'>
+  <div class='limiter'>
+     <div class='col dl'>
+      <div class='dl-data'>.CSV</div>
+      <div><a id="download_csv" title='Descarga de Datos' class='button'>Descargar Datos</a></div>
+      <p class='details'>Descargue el documento. .csv que contiene todos los datos visibles en este sitio para su uso en un programa de hoja de cálculo o <a href="http://mapbox.com/tilemill">TileMill</a>.</p>
+    </div>
+    <div class='col dl'>
+      <div class='dl-map'>JSON</div>
+      <div><a id="download_josn" title='API Feed' class='button'>Datos API Feed</a></div>
+      <p class='details'>Accede a  los datos visializados en formato  JSON API para el uso en programación  en una aplicación web.</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+  </div>
+
+
+  <div id="footer">
+    <span>Desarrollado con <a href='http://tilemill.com' title='TileMill'> TileMill</a></span>
+  </div>
+  <!-- scripts-->
+<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
+<script src="js/jquery.min.js"></script>
+ <script src="js/underscore-min.js"></script>
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
  <script src="js/google_docs.js"></script>
   <script src="js/app.js"></script>
   
   <!-- end scripts--> 
 
-</div>
 
 </body>
 </html>
