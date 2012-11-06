@@ -158,6 +158,9 @@ Map
   width:100%; 
   }
 
+/*-----------------------------------
+loading gif
+-------------------------------------*/
 .loading {
   position: relative;
 }
@@ -282,14 +285,13 @@ Block  for description  "Incidentes Delictivos en Ayacucho"
 }
 
 
-#block_text_desription p{ /*justify in both block*/
+#block_text_desription p{ 
   color: #282828;
   line-height: 30px;
   padding: 3px 10px;
   text-align: justify;
   width: 280px;
 }
-
 
 /*-----------------------------------
 Block  for show the statistic box 
@@ -301,6 +303,9 @@ Block  for show the statistic box
   width: 460px;
 }
 
+/*-----------------------------------
+Main imagen statistic
+-------------------------------------*/
 #img_total_percentage{
   float: left;
   height: 500px;  
@@ -309,6 +314,9 @@ Block  for show the statistic box
   width: 800px;
 }
 
+/*-----------------------------------
+Title from main imagen statistic
+-------------------------------------*/
 #title_statistic {
   color: #000;
   font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
@@ -319,6 +327,9 @@ Block  for show the statistic box
   z-index: 8px;
 }
 
+/*-----------------------------------
+number total of incident in main imagen statistic
+-------------------------------------*/
 #num-incident{
   color: #005C9C;
   font-size: 100px;
@@ -329,7 +340,6 @@ Block  for show the statistic box
   z-index: 9;
 
 }
-
 
 /*-----------------------------------
 Block  for description OPEN DATA
@@ -381,6 +391,38 @@ block for estatistic for month
   width: 74px;
 }
 
+/*-----------------------------------
+block for indicater menu type and menu month
+-------------------------------------*/
+#indicate_menu{
+  background: #000;
+  height: 100px;
+  position: absolute;
+  right: 10px;
+  top: 85px;
+  width: 120px;
+  z-index: 15;
+  opacity: 0.7;
+    -moz-box-shadow: 0 0 5px #999;
+  -webkit-box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px #999;
+  -moz-transition: top 0.5s ease;
+  -o-transition: top 0.5s ease;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+}
+#indicate_menu p{
+  color: #fff;
+  text-align: left;
+  padding: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+/*-----------------------------------
+block for show graphics line  by month
+-------------------------------------*/
 .statistic_by_month{  
   background: #fff;
   display: none;
@@ -398,6 +440,9 @@ block for estatistic for month
 }
 
 
+/*-----------------------------------
+close block for show graphics line  by month
+-------------------------------------*/
 #id_close {
   background: #ddd;  
   display: none;
@@ -439,7 +484,7 @@ Block for sow Incident  table
 }
 
 /*-----------------------------------
-  Downloads Section
+  butoon fro download
 -------------------------------------*/
 a.button {
   font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
@@ -469,8 +514,10 @@ a.button:hover {
   background-color: #000;
   }
 
+/*-----------------------------------
+  block Downloads Section
+-------------------------------------*/
 #downloads {
-  /*background: #fff;*/
   margin-top: 35px;
   }
 #downloads .col {
@@ -525,29 +572,25 @@ a.button:hover {
 /*-----------------------------------
 footer
 -------------------------------------*/
-
 #footer{
-background-color: #2F2F2F;
-border-top: 5px solid #ddd;
-height : 100px;
-left: 0;
-margin: 0 auto;
-position: absolute;
-padding-top: 80px;
-right: 0;
-/*top: 1680px;*/
-top: 1650px;
-width: 100%; 
-z-index: 6;
-
+  background-color: #2F2F2F;
+  border-top: 5px solid #ddd;
+  height : 100px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  padding-top: 80px;
+  right: 0;
+  top: 1650px;
+  width: 100%; 
+  z-index: 6;
 }
 
 #footer span{
   height: 150px;
   color: #989898;
   padding-top: 80px;
-  margin-left: 350px;
-  
+  margin-left: 350px;  
 }
 
 

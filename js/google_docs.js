@@ -2,6 +2,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
     if (typeof reqwest === 'undefined'){
         throw 'CSV: reqwest required for mmg_csv_url';
     }
+
     var url = 'https://spreadsheets.google.com/feeds/list/' +
         id + '/od6/public/values?alt=json-in-script&callback=callback';
     reqwest({
@@ -16,26 +17,17 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
         var features = [],
             latfield = '',
             lonfield = '';
-                
         if (!x || !x.feed) return features;
-
         for (var f in x.feed.entry[0]) {
-            // alert("f: "+ f.toString());
             if (f.match(/\$Lat/i)){
-                latfield = f;
-                //alert(latfield);
+                latfield = f;           
             }
             if (f.match(/\$Lon/i)){
-                lonfield = f;
-                        //  alert(lonfield);
+                lonfield = f;              
             }
-
         }
 
-
-        for (var i = 0; i < x.feed.entry.length; i++) {
-            // alert("x.feed.entry.length: "+ x.feed.entry.length+'  i: '+i );
-                    
+        for (var i = 0; i < x.feed.entry.length; i++) {                             
             var entry = x.feed.entry[i];
             var feature = {
                 geometry: {
@@ -48,53 +40,35 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                     'description': entry['gsx$descripcióndelincidente'].$t,  
                     'date': 'Fecha: ' + entry['gsx$fechadelincidente'].$t,
                     'hour': 'Hora: ' + entry['gsx$horadelincidente'].$t,
-                    'marcatemporal':entry['gsx$marcatemporal'].$t,
-
-      
+                    'marcatemporal':entry['gsx$marcatemporal'].$t      
                 }
             };
 
-                   // alert('entry : '+entry[i].);
-
             for (var y in entry) {
-
                 if (y === latfield) feature.geometry.coordinates[1] = parseFloat(entry[y].$t);
                 else if (y === lonfield) feature.geometry.coordinates[0] = parseFloat(entry[y].$t);
-                    else if (y.indexOf('gsx$') === 0) {                            
-                            feature.properties[y.replace('gsx$', '')] = entry[y].$t;
-                        }
-                    }
-                    if (feature.geometry.coordinates.length == 2) features.push(feature);
-
-                   //alert(features[0]);
-                    //if(i+1 == x.feed.entry.length)
-                    //{
-                      _.each(feature, function(value, key) {
-                           if(feature.properties['title']=="Robo"){ feature.properties['marker-color']="#33359A";} 
-                           if(feature.properties['title']=="Intento de Robo") {feature.properties['marker-color']="#FF6600";}
-                           if(feature.properties['title']=="Agresión") { feature.properties['marker-color']="#7D017D";}
-                           if(feature.properties['title']=="Accidente") {feature.properties['marker-color']="#30980D";}   
-                           if(feature.properties['title']=="Violencia Familiar") {feature.properties['marker-color']="#D3162D";}                         
-                           if(feature.properties['title']=="Otros") {feature.properties['marker-color']="#FFCC00";}
-
-          
-                        });
-                    //}   //alert(aContadorIncidencia['robo']);
-
+                else if (y.indexOf('gsx$') === 0) {                            
+                    feature.properties[y.replace('gsx$', '')] = entry[y].$t;
                 }
-
-                      
-
-               
-
-                return callback(features);
             }
+            
+            if (feature.geometry.coordinates.length == 2) features.push(feature);
 
-
+            _.each(feature, function(value, key) {
+                if(feature.properties['title']=="Robo"){ feature.properties['marker-color']="#33359A";} 
+                if(feature.properties['title']=="Intento de Robo") {feature.properties['marker-color']="#FF6600";}
+                if(feature.properties['title']=="Agresión") { feature.properties['marker-color']="#7D017D";}
+                if(feature.properties['title']=="Accidente") {feature.properties['marker-color']="#30980D";}   
+                if(feature.properties['title']=="Violencia Familiar") {feature.properties['marker-color']="#D3162D";}                         
+                if(feature.properties['title']=="Otros") {feature.properties['marker-color']="#FFCC00";}        
+            });
         }
+        return callback(features);
+    }
+}
 
 
-/****************************************************************************************************************/
+//function for get data from spreadsheet "resumen"
 
 function mmg_google_docs_spreadsheet_2(id, callback) {
     if (typeof reqwest === 'undefined'){
@@ -111,20 +85,12 @@ function mmg_google_docs_spreadsheet_2(id, callback) {
     }); 
    
     function response(x) {
-
-
         var features_summary = [];
-        if (!x || !x.feed) return features_summary;
-           
-     
-
-        for (var i = 0; i < x.feed.entry.length; i++) {
-            // alert("x.feed.entry.length: "+ x.feed.entry.length+'  i: '+i );
-                    
+        if (!x || !x.feed) return features_summary; 
+        for (var i = 0; i < x.feed.entry.length; i++) {                               
             var entry = x.feed.entry[i];
             var feature_summary = {
-                properties: {
-                    
+                properties: {                    
                     'tipo_incidente': entry['gsx$tipoincidente'].$t,
                     'cantidad_type': parseInt(entry['gsx$cantidadtype'].$t),  
                     'cantjanuary': parseInt(entry['gsx$cantjanuary'].$t),  
@@ -138,10 +104,7 @@ function mmg_google_docs_spreadsheet_2(id, callback) {
                     'cantseptember':parseInt(entry['gsx$cantseptember'].$t),
                     'cantoctober':parseInt(entry['gsx$cantoctober'].$t),
                     'cantnovember':parseInt(entry['gsx$cantnovember'].$t),
-                    'cantdecember':parseInt(entry['gsx$cantdecember'].$t),
-                   
-
-
+                    'cantdecember':parseInt(entry['gsx$cantdecember'].$t)   
                 }
             };
 
@@ -149,8 +112,6 @@ function mmg_google_docs_spreadsheet_2(id, callback) {
 
         }
 
-                    return callback(features_summary);
-            }
-
-
+        return callback(features_summary);
     }
+}
