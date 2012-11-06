@@ -1,6 +1,6 @@
 
 var data_id = 'xxxxxxxxxxxxxxxx';
-var map_id='xxxxxxxxxxxxxxxx';
+var map_id='xxxxxxxxxxxxx';
 var markerLayer;
 var features;
 var features_summary;

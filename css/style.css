@@ -287,7 +287,7 @@ Block  for description  "Incidentes Delictivos en Ayacucho"
 
 #block_text_desription p{ 
   color: #282828;
-  line-height: 30px;
+  line-height: 27px;
   padding: 3px 10px;
   text-align: justify;
   width: 280px;
@@ -363,7 +363,7 @@ Block  for description OPEN DATA
 
 #block_opendata p {   
   color: #282828;
-  line-height: 30px;
+  line-height: 27px;
   padding: 3px 10px;
   text-align: justify;
   width: 280px;
@@ -465,8 +465,8 @@ Block for sow Incident  table
 -------------------------------------*/
 #block_incident_table{
   position: absolute;
-  left: 0;
-  top: 510px;
+  left: -10;
+  top: 520px;
   background: #fff;
   height: 500px;
   width: 800px;
