@@ -1,6 +1,6 @@
 
-var data_id = '0AhfXukqwpMbidGRYLTJnd3k0aXV5UGktNjYwazh4aWc',
-    map_id='examples.map-4l7djmvo',
+var data_id = 'xxx',
+    map_id='xxx',
     markerLayer,
     features,
     features_summary,
