@@ -55,12 +55,12 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
             if (feature.geometry.coordinates.length == 2) features.push(feature);
 
             _.each(feature, function(value, key) {
-                if(feature.properties['title']=="Robo"){ feature.properties['marker-color']="#33359A";} 
-                if(feature.properties['title']=="Intento de Robo") {feature.properties['marker-color']="#FF6600";}
-                if(feature.properties['title']=="Agresión") { feature.properties['marker-color']="#7D017D";}
-                if(feature.properties['title']=="Accidente") {feature.properties['marker-color']="#30980D";}   
-                if(feature.properties['title']=="Violencia Familiar") {feature.properties['marker-color']="#D3162D";}                         
-                if(feature.properties['title']=="Otros") {feature.properties['marker-color']="#FFCC00";}        
+                if(feature.properties['title']=="Robo"){ feature.properties['marker-color']='#CB3344'} 
+                if(feature.properties['title']=="Intento de Robo") {feature.properties['marker-color']='#FFCC33'}
+                if(feature.properties['title']=="Agresión") { feature.properties['marker-color']='#653332'}
+                if(feature.properties['title']=="Accidente") {feature.properties['marker-color']='#CC6633'}   
+                if(feature.properties['title']=="Violencia Familiar") {feature.properties['marker-color']='#666535'}                         
+                if(feature.properties['title']=="Otros") {feature.properties['marker-color']='#222222'}  /*#20445C*/      
             });
         }
         return callback(features);

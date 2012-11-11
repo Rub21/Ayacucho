@@ -29,7 +29,7 @@ h1,h2,h3,h4,h5 {
   color: #fff;
   }
 
-  .marker-popup h3{
+.marker-popup h3{
     color: #000;
   }
 
@@ -55,10 +55,10 @@ a {
   width: 100%;
   top: 0;
   z-index: 5;
-}
+  }
 
-#header{
-  height: 40px;
+#header {
+  height: 42px;
   width: 100%;
   -moz-box-shadow: 0 0 5px #999;
   -webkit-box-shadow: 0 0 5px #999;
@@ -67,26 +67,26 @@ a {
   -o-transition: top 0.5s ease;
   -webkit-transition: top 0.5s ease;
   transition: top 0.5s ease;
+  }
 
-}
-
-#header h1{
-  line-height: 46px;
+#header h1 {
+  line-height: 42px;
   margin-left: 150px;
-  font-size: 46px;
+  font-size: 42px;
   float: left;
-}
+  }
 
-#header h1 span{
+#header h1 span {
   color: #BA003F;
-}
+  }
 
-#header h2{
+#header h2 {
   color:#40404B;
+  font-size: 20px;
   float: left;
-  line-height: 46px;
-  margin-left: 50px;
-}
+  line-height: 42px;
+  margin-left: 50px;  
+  }
 
 /*-----------------------------------
  Horizontal menu
@@ -94,7 +94,7 @@ a {
 
 #menu_type_incident{
   background-image: url(../images/img-header.png);
-  height: 42px;
+  height: 40px;
   left: 0;
   margin-left: auto;
   margin-right: auto;
@@ -102,14 +102,7 @@ a {
   right: 0;
   top: 42px;
   z-index: 7;
-  -moz-box-shadow: 0 0 5px #999;
-  -webkit-box-shadow: 0 0 5px #999;
-  box-shadow: 0 0 5px #999;
-  -moz-transition: top 0.5s ease;
-  -o-transition: top 0.5s ease;
-  -webkit-transition: top 0.5s ease;
-  transition: top 0.5s ease;
-}
+  }
 
 #ul_menu_type_incident{
   background-color: #292929;
@@ -117,15 +110,15 @@ a {
   height: 40px;
   line-height: 40px;
   width: 960px;  
-}
+  }
 
 #ul_menu_type_incident li { 
   display: block;
   float: left;
-}
+  }
 
 #ul_menu_type_incident li a {
-  background-color: ##292929;
+  background-color: #292929;
   color: #fff;
   display: block;
   height: 40px;
@@ -134,17 +127,19 @@ a {
   -moz-transition-duration:1s;
   -webkit-transition-duration:1s;
   -o-transition-duration:1s;
-}
+  }
 
-#ul_menu_type_incident li a:hover{
-  background-color: #171717;
-  color: #fff;
-}
+#ul_menu_type_incident li a:hover {
+  background-color: #bbb;
+  color: #005C9C;
+  font-weight: bold;
+  }
 
-#ul_menu_type_incident li a.active{
-  background-color: #171717;
-  color: #fff;
-}
+#ul_menu_type_incident li a.active {
+  background-color: #bbb;
+  color: #005C9C;
+  font-weight: bold;
+  }
 
 /*-----------------------------------
 Map
@@ -163,22 +158,22 @@ loading gif
 -------------------------------------*/
 .loading {
   position: relative;
-}
+  }
 
 .loading:after {
+  background: url(../images/ajax-loader.gif) no-repeat;
   content: "Cargando...";
-  position: absolute;
-  font-size: 12px;
-  top: 50%;
-  left: 50%;
-  width: 80px;
+  color: #666;
+  left: 50%;  
   height: 16px;
+  line-height: 16px;
   margin-top: -8px;
   margin-left: -40px;
+  position: absolute;
+  font-size: 12px;
+  top: 50%; 
   text-indent: 26px;
-  background: url(../images/ajax-loader.gif) no-repeat;
-  line-height: 16px;
-  color: #666;
+  width: 80px;
   }
 
 #map.loading:after {
@@ -191,12 +186,13 @@ loading gif
   border-radius: 10px;
   z-index: 999999;
   position: absolute;
-}
+  }
 
 /*-----------------------------------
 vertical Block for horizontal menu month
 -------------------------------------*/
-#menu_month{
+
+#menu_month {
   background:#ddd;
   border-bottom: 5px solid #BA003F;
   height: 40px;
@@ -208,221 +204,214 @@ vertical Block for horizontal menu month
   right: 0;
   top: 680px;
   z-index: 7;
-}
+  }
 
-#ul_menu_month{
+#ul_menu_month {
   background-color: #ddd;
   color: #fff;
   height: 40px;
   line-height: 42px;
   width: 1100px;  
-}
+  }
 
 #ul_menu_month li { 
   display: block;
   float: left;
-}
+  }
 
 #ul_menu_month li a {
   background-color: #ddd;
-  display: block;
-  color: #fff;
+  color: #2E3546;
+  display: block;    
   height: 40px;
-  width: 84.6px;
-  color: #2E3546; 
-}
+  width: 84.6px;  
+  transition-duration:1s;
+  -moz-transition-duration:1s;
+  -webkit-transition-duration:1s;
+  -o-transition-duration:1s;
+  }
 
-#ul_menu_month li a:hover{
+#ul_menu_month li a:hover {
   background-color: #171717;
-  color: #fff;
-}
+  color:#005C9C;
+  font-weight: bold;
+  }
 
-#ul_menu_month li a.active{
+#ul_menu_month li a.active {
   background-color: #171717;
-  color: #fff;
-  transform:translate(5px,0px);
-  -moz-transform:translate(5px,0px);
-  -webkit-transform:translate(5px,0px);
-  -o-transform:translate(5px,0px);
-}
+  color: #005C9C;
+  font-weight: bold;
+  }
 
 /*-----------------------------------
 middle content
 -------------------------------------*/
-#middle_content{
+
+#middle_content {
   background-color: #fff;
-  height : 925px;
+  height : 500px;
   left: 0;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  top: 720px;
+  top: 725px;
   width: 1100px; 
   z-index: 6;
-}
+  }
 
-#middle_content  a{
+#middle_content a {
   color: #005C9C;
-}
+  }
 
 /*-----------------------------------
 Block  for description  "Incidentes Delictivos en Ayacucho"
 -------------------------------------*/
-#block_text_desription{
+#block_text_desription {
   background-color: #ECECEC;
-  height: 500px;
+  float: left;
+  height: 500px; 
   width: 300px;
-  float: left;  
    -moz-box-shadow: 0 0 3px 3px #ddd;
   -webkit-box-shadow: 0 0 3px 3px#ddd;
   box-shadow: 0 0 3px 3px #ddd;
+  }
 
-}
-
-#block_text_desription h3{
+#block_text_desription h3 {
   color: #005C9C;
   margin: 5px 3px 3px 3px;
-}
+  }
 
 
-#block_text_desription p{ 
+#block_text_desription p { 
   color: #282828;
-  line-height: 27px;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 25px;
   padding: 3px 10px;
   text-align: justify;
   width: 280px;
-}
+  }
 
 /*-----------------------------------
 Block  for show the statistic box 
 -------------------------------------*/
 
-#block_statistic{
+#block_statistic {
   float: left;
   height: 500px;  
   width: 460px;
-}
+  }
 
 /*-----------------------------------
 Main imagen statistic
 -------------------------------------*/
-#img_total_percentage{
+#img_total_percentage {
   float: left;
   height: 500px;  
   margin-left: -130px;
   margin-top: -60px;
   width: 800px;
-}
+  }
 
 /*-----------------------------------
 Title from main imagen statistic
 -------------------------------------*/
 #title_statistic {
-  color: #000;
+  color: #005C9C;
   font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
-  font-size: 30px;
+  font-size: 35px;
   left: 15px;
   position: relative;
+  text-transform: uppercase;
   top: 20px;
   z-index: 8px;
-}
+  }
 
 /*-----------------------------------
 number total of incident in main imagen statistic
 -------------------------------------*/
-#num-incident{
-  color: #005C9C;
-  font-size: 100px;
-  font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
-  left: 360px;
-  position: absolute;
-  top: 440px;
-  z-index: 9;
 
-}
+#num-incident {
+  color: #005C9C;
+  font-family: 'AlternateGothicLTNo3Regular',Arial,sans-serif;
+  font-size: 30px;
+  left: 350px;
+  position: absolute;
+  top: 380px;
+  z-index: -9;
+  }
 
 /*-----------------------------------
 Block  for description OPEN DATA
 -------------------------------------*/
 
-#block_opendata{
-  background: #ECECEC;
+#block_downloads {
+  background: #fff;
   height: 500px;
   float: right;
-  margin-left: 40px;
+  margin-left: 0px;
   width: 300px;
- -moz-box-shadow: 0 0 3px 3px #ddd;
-  -webkit-box-shadow: 0 0 3px 3px#ddd;
-  box-shadow: 0 0 3px 3px #ddd;
-}
-
-#block_opendata  h3{
-  color: #005C9C;
-  margin: 10px 3px 3px 3px;
-}
-
-#block_opendata p {   
-  color: #282828;
-  line-height: 27px;
-  padding: 3px 10px;
-  text-align: justify;
-  width: 280px;
-}
+  }
 
 /*-----------------------------------
 block for estatistic for month 
 -------------------------------------*/
 
-#arrow_show_block{
-    background-image: url(../images/row.png);
-    height: 36px;
-    margin: 0 auto;
-    position: absolute;
-    top: 644px;
-    left: 0;
-    right: 0;
-    width: 74px;
-    z-index: 99;
-}
+#arrow_show_block {
+  background-image: url(../images/row.png);
+  height: 36px;
+  margin: 0 auto;
+  position: absolute;
+  top: 644px;
+  left: 0;
+  right: 0;
+  width: 74px;
+  z-index: 99;
+  }
 
-#arrow_show_block a{
+#arrow_show_block a {
   display: block;
   height: 36px;
   width: 74px;
-}
+  }
 
 /*-----------------------------------
 block for indicater menu type and menu month
 -------------------------------------*/
-#indicate_menu{
-  background: #000;
-  height: 100px;
+
+#indicate_menu {  
+  background: none repeat scroll 0 0 #000;
+  border-bottom: 2px solid #fff;
+  border-top: 2px solid #fff;
+  height: auto;
+  opacity: 0.7;
   position: absolute;
   right: 10px;
   top: 85px;
   width: 120px;
-  z-index: 15;
-  opacity: 0.7;
-    -moz-box-shadow: 0 0 5px #999;
+  z-index: 15;  
+  -moz-box-shadow: 0 0 5px #999;
   -webkit-box-shadow: 0 0 5px #999;
   box-shadow: 0 0 5px #999;
   -moz-transition: top 0.5s ease;
   -o-transition: top 0.5s ease;
   -webkit-transition: top 0.5s ease;
-  transition: top 0.5s ease;
-}
-#indicate_menu p{
-  color: #fff;
-  text-align: left;
-  padding: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
+  transition: top 0.5s ease; 
+  transition: height 0.2s linear 0s;
+  }
 
-}
+#indicate_menu p {
+  color: #fff;
+  font-weight: bold;  
+  padding: 12px;  
+  text-align: left;
+  text-transform: uppercase;
+  }
 
 /*-----------------------------------
 block for show graphics line  by month
 -------------------------------------*/
+
 .statistic_by_month{  
   background: #fff;
   display: none;
@@ -433,16 +422,16 @@ block for show graphics line  by month
   top: -340px;
   width: 1100px;
   z-index: 6;
-  /*opacity: 0.9;*/
- -moz-box-shadow: 0 0 3px 3px #ddd;
+  -moz-box-shadow: 0 0 3px 3px #ddd;
   -webkit-box-shadow: 0 0 3px 3px#ddd;
   box-shadow: 0 0 3px 3px #ddd;
-}
+  }
 
 
 /*-----------------------------------
 close block for show graphics line  by month
 -------------------------------------*/
+
 #id_close {
   background: #ddd;  
   display: none;
@@ -457,46 +446,23 @@ close block for show graphics line  by month
   -moz-box-shadow:    0 0 3px #ddd;
   -webkit-box-shadow: 0 0 3px #ddd;
   box-shadow:         0 0 3px #ddd;
-}
+  }
 
-
-/*-----------------------------------
-Block for sow Incident  table
--------------------------------------*/
-#block_incident_table{
-  position: absolute;
-  left: -10;
-  top: 520px;
-  background: #fff;
-  height: 500px;
-  width: 800px;
-  z-index: 10px;
-}
-
-#block_downloads{
-  position: absolute;
-  right: 0;
-  top: 510px;
-  background: #fff;
-  height: 500px;
-  width: 300px;
-  z-index: 10;
-}
 
 /*-----------------------------------
   butoon fro download
 -------------------------------------*/
 a.button {
-  font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
-  text-transform: uppercase;
-  font-size: 21px;
+  background: #282828;
   display: block;
-  text-align: center;
+  font-size: 21px;  
   font-weight: 100;
-  width: 195px;
+  font-family: 'AlternateGothicLTNo3Regular',Arial, sans-serif;
   height: 50px;
   line-height: 50px;
-  background: #282828;
+  text-transform: uppercase; 
+  text-align: center;
+  width: 195px;  
   -moz-transition: all 0.3s ease-out;  /* FF4+ */
   -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
   -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
@@ -510,6 +476,7 @@ a.button {
   margin-top: 15px;
   font-weight: normal!important;
   }
+
 a.button:hover {
   background-color: #000;
   }
@@ -517,31 +484,38 @@ a.button:hover {
 /*-----------------------------------
   block Downloads Section
 -------------------------------------*/
+
 #downloads {
   margin-top: 35px;
   }
+
 #downloads .col {
-  min-height: 170px;
   height: auto!important;
   height: 170px;
+  min-height: 170px;
   padding: 20px 10px;
   }
+
 #downloads .copy {
   width: 200px;
   padding: 20px 20px 0;
-  }
+}
+
 .copy a {
   font-weight: bold;
   color: #005C9C;
   }
+
 #downloads .dl {
   width: 319px;
   border-left: 1px dotted white;
   padding: 20px 0 10px 20px;
   }
+
 #downloads .dl a {
   font-weight: bold;
   }
+
 #downloads .dl p.details {
   display: block;
   margin-left: 90px;
@@ -552,9 +526,11 @@ a.button:hover {
   padding-top: 20px;
   color: #000;
   }
+
 #downloads .limiter div {
   float: left;
   }
+
 #downloads .dl-map,
 #downloads .dl-data {
   background: url(../images/sprite.png) no-repeat -425px -120px;
@@ -565,6 +541,7 @@ a.button:hover {
   padding-top: 75px;
   text-align: center;
   }
+
 #downloads .dl-map {
   background-position: -425px -5px;
   }
@@ -572,25 +549,139 @@ a.button:hover {
 /*-----------------------------------
 footer
 -------------------------------------*/
+
 #footer{
-  background-color: #2F2F2F;
+  background-color: #2B2E31;
   border-top: 5px solid #ddd;
-  height : 100px;
+  height : 150px;
   left: 0;
   margin: 0 auto;
   position: absolute;
   padding-top: 80px;
   right: 0;
-  top: 1650px;
+  top: 1150px;
   width: 100%; 
   z-index: 6;
-}
+  }
 
-#footer span{
-  height: 150px;
-  color: #989898;
-  padding-top: 80px;
-  margin-left: 350px;  
-}
+#footer .center {
+  background: #2B2E31;
+  height: 40px;  
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  top:0;  
+  right: 0;
+  width: 1100px;
+  z-index: 99;
+  }
+
+.center  a{
+  margin-top: 7px;
+  margin-left: 15px;
+  }
+
+#footer .center .separator{
+  background: url("../images/ftr-separator.png") no-repeat ;
+  background-position:center;
+  display: block;
+  font-size: 0;
+  margin-top: 5px;
+  text-align: center;
+  }
+
+#footer .center span{  
+  float: left;
+  margin-top: 25px;
+  }
+
+#footer .center img{  
+  float: right;
+  }
+
+/*-----------------------------------
+block  for superposition
+-------------------------------------*/
+.popover {
+  padding: 10px 20px;
+  text-align: justify;
+  overflow: auto;
+  overflow-x: hidden;
+  -moz-border-radius:    3px;
+  -webkit-border-radius: 3px;
+  border-radius:         3px;
+  -moz-box-shadow:    0px 1px 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 1px 10px rgba(0,0,0,0.5);
+  box-shadow:         0px 1px 10px rgba(0,0,0,0.5);
+  background: #fff;
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0; 
+  z-index: 999;
+  width: 500px;
+  height: 500px;
+  }
+
+.popover h1 {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #BA003F;
+  }
+
+.popover p {
+  line-height: 25px;
+  font-size: 12px;
+  margin-top: 15px;
+  text-align: justify;
+  }
 
 
+.popover a {
+  color: #005C9C; 
+  }
+
+#close {
+  display: none;
+  position: fixed;
+  width: 30px;
+  height: 25px;
+  top: 20%;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: 255px;
+  border: none;
+  background: #333;
+  border-radius: 15px;
+  -moz-box-shadow:    0 0 3px #000;
+  -webkit-box-shadow: 0 0 3px #000;
+  box-shadow:         0 0 3px #000;
+  color: #fff;
+  font-size: 20px;
+  line-height: 25px;
+  padding-top: 5px;
+  text-align: center;
+  text-shadow: 0 1px 0 #000;
+  z-index: 99999;
+  }
+
+#close:hover { background: #444; }
+
+#backdrop {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: #333;
+  opacity: 0.8;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  z-index: 99;
+  }
