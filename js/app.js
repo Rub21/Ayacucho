@@ -196,10 +196,9 @@ function draw_main_box() {
 function draw_all_incedent() {
     var data = google.visualization.arrayToDataTable([]);
     var options = {title: 'GRAFICO DE LINEA DEL TOTAL DE INCIDENCIAS',
-        hAxis: {title: 'Meses',   titleTextStyle: {color: 'red'}},
+        hAxis: {title: 'Meses',   titleTextStyle: {color: 'red'}, textStyle:{color: '#333' , fontSize: 11}},
         vAxis: {title: 'Cantidad',   titleTextStyle: {color: 'red'}},
-        gridlines:{color: '#333', count: 5}, 
-        textStyle:{color: '#333' , fontSize: 11},
+        gridlines:{color: '#333', count: 5},         
         backgroundColor: 'transparent'
     };
     var chart = new google.visualization.LineChart(document.getElementById("all_incident_type_statistic"));
@@ -228,10 +227,9 @@ function draw_type_incedent(id_x,i) {
     var data = google.visualization.arrayToDataTable([]);
     var options = {
         title: ' GRAFICO DE LINEA DE TIPO DE INCIDENCIA - '+id_x.replace('_statistic',"").replace('_'," ").replace('_'," ").toUpperCase(),
-        hAxis: {title: 'Meses',   titleTextStyle: {color: 'red'}},
+        hAxis: {title: 'Meses',   titleTextStyle: {color: 'red'}, textStyle:{color: '#333' , fontSize: 11}},
         vAxis: {title: 'Cantidad',   titleTextStyle: {color: 'red'}},
-        gridlines:{color: '#333', count: 4}, 
-        textStyle:{color: '#333' , fontSize: 11},
+        gridlines:{color: '#333', count: 4},         
         backgroundColor: 'transparent'
     };
     var chart = new google.visualization.LineChart(document.getElementById(id_x));
