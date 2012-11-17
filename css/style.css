@@ -146,7 +146,7 @@ Map
 -------------------------------------*/
 
 #map {
-  background-color: #2D2A2A;
+  background-color: #EBE2D9;
   height: 598px;
   position:absolute; 
   top:82px; 
@@ -236,12 +236,13 @@ block for definition of crimen
 .arrow_block_inf {
   background-image:  url(../images/row-2.png);
   display: block;
-  height: 36px;
+  height: 37px;  
   left: 15px;
+  margin: auto;
   top: 640px;
   position: absolute;
-  width: 22px;
-  z-index: 9999;
+  width: 21px;
+  z-index: 9;
  }
 
 
@@ -249,8 +250,8 @@ block for definition of crimen
  .arrow_block_inf a {
   display: block;
   font-size: 0px;
-  height: 36px;
-  width: 22px;  
+  height: 37px;
+  width: 21px;  
   }
 
 .close_block{
