@@ -147,9 +147,9 @@ Map
 
 #map {
   background-color: #2D2A2A;
-  height: 680px;
+  height: 598px;
   position:absolute; 
-  top:0; 
+  top:82px; 
   width:100%; 
   }
 
@@ -189,12 +189,98 @@ loading gif
   }
 
 /*-----------------------------------
+block for definition of crimen
+-------------------------------------*/
+
+.block_inf_type{
+  background: #fff;
+  border: 1px solid #7F8A8C;
+  display: none;
+  left: 0px;
+  height: 596px;
+  max-height: 596px;
+  position: absolute;
+  top: 82px;
+  width: 300px;
+  z-index: 99px;
+  -moz-box-shadow: 0 0 5px #999;
+  -webkit-box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px #999;
+  -moz-transition: top 0.5s ease;
+  -o-transition: top 0.5s ease;
+  -webkit-transition: top 0.5s ease;
+  transition: top 0.5s ease;
+  }
+
+.block_inf_type h3 {
+  color: #005C9C;
+  margin-bottom: 1px;
+  margin-top: 1px;
+  margin-left: 10px;
+  margin-right: 1px;
+ 
+  font-size: 15px;
+  }
+
+
+.block_inf_type p { 
+  color: #282828;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 1px 10px;
+  text-align: justify;
+  width: 280px;
+  }
+
+
+.arrow_block_inf {
+  background-image:  url(../images/row-2.png);
+  display: block;
+  height: 36px;
+  left: 15px;
+  top: 640px;
+  position: absolute;
+  width: 22px;
+  z-index: 9999;
+ }
+
+
+
+ .arrow_block_inf a {
+  display: block;
+  font-size: 0px;
+  height: 36px;
+  width: 22px;  
+  }
+
+.close_block{
+    background-image: url(../images/close.png);
+    display: none;
+    height: 20px;    
+    width: 19px;
+  }
+
+  .close_block a{
+    display: block;
+    font-size: 0px;
+    height: 20px;    
+    width: 19px
+  }
+
+#close_block_inf{  
+  left: 275px;
+  position: absolute;
+  top: 87px;  
+ }
+/*-----------------------------------
 vertical Block for horizontal menu month
 -------------------------------------*/
 
 #menu_month {
   background:#ddd;
   border-bottom: 5px solid #BA003F;
+  border-top: 1px solid #7F8A8C;
   height: 40px;
   left: 0;
   margin-left: auto;
@@ -301,6 +387,7 @@ Block  for show the statistic box
   height: 500px;  
   width: 460px;
   }
+
 
 /*-----------------------------------
 Main imagen statistic
@@ -414,6 +501,7 @@ block for show graphics line  by month
 
 .statistic_by_month{  
   background: #fff;
+  border: 1px solid #7F8A8C;
   display: none;
   height:300px;
   position: absolute;
@@ -422,31 +510,23 @@ block for show graphics line  by month
   top: -340px;
   width: 1100px;
   z-index: 6;
-  -moz-box-shadow: 0 0 3px 3px #ddd;
-  -webkit-box-shadow: 0 0 3px 3px#ddd;
-  box-shadow: 0 0 3px 3px #ddd;
+  -moz-box-shadow: 0 0 2px 2px #ddd;
+  -webkit-box-shadow: 0 0 2px 2px#ddd;
+  box-shadow: 0 0 2px 2px #ddd;
   }
 
 
 /*-----------------------------------
 close block for show graphics line  by month
 -------------------------------------*/
+#close_block_stac{  
+ position: absolute;
+  top: -334px; 
+  right: 8px;
 
-#id_close {
-  background: #ddd;  
-  display: none;
-  height: 20px;
-  line-height: 20px;
-  position: absolute;
-  top: -340px;
-  right: 0px;
-  text-align: center;
-  width: 20px;
-  z-index: 7;
-  -moz-box-shadow:    0 0 3px #ddd;
-  -webkit-box-shadow: 0 0 3px #ddd;
-  box-shadow:         0 0 3px #ddd;
-  }
+  z-index: 999;
+ }
+
 
 
 /*-----------------------------------

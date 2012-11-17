@@ -1,0 +1,20 @@
+
+#img_total_percentage {
+  position: absolute;
+  z-index: -1;
+  }
+
+#title_statistic {
+
+  }
+
+#num-incident {
+  position: absolute;
+  z-index: 5;
+}
+
+
+#footer .center .separator{
+  background-image: url(../images/ftr-separator.png);
+
+  }

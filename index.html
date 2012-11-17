@@ -6,7 +6,7 @@
     <link type='text/css' href='css/mapbox.css' rel='stylesheet' />
     <link rel='stylesheet' href='css/reset.css' type='text/css'  />
     <link  type='text/css' href='css/style.css' rel='stylesheet' />
-    <link  type='text/css' href='css/table.css' rel='stylesheet' />                                                                   
+     <!--[if IE 8]> <link  type='text/css' href='css/ie8.css' rel='stylesheet' />  <![endif]-->                                                                   
   </head>
   <body>
     <div id='masthead'>
@@ -29,8 +29,27 @@
     </div>
     <!-- block map -->
     <div id="map" class="loading"></div>
+
+    <div class="block_inf_type">
+      <h3>Robo</h3>
+      <p>Es un delito contra el patrimonio, que consistente en el apoderamiento de bienes ajenos,empleando para ello fuerza en las cosas o bien violencia o intimidación en la persona.</p>
+      <h3>Intento de Robo</h3>
+      <p>Es similar al  incidentes anterior, con la difeencia de que este es impedido por la persona o por terceros.</p>
+      <h3>Agresión</h3>
+      <p>Ataque violento contra una persona con el objeto de dañarla físicamente y/o a sus bienes.</p>
+      <h3>Accidente</h3>
+      <p>Cualquier suceso que es provocado por una acción violenta y repentina ocasionada por un agente externo involuntario, y puede o no dar lugar a una lesión corporal.</p>
+       <h3>Violencia Familiar</h3>
+      <p>Es la acción u omisión que el integrante de un grupo familiar ejerce contra otro y que produce un daño no accidental en el aspecto físico o psíquico. </p>
+      <h3>Otros</h3>
+      <p>En este rubro se clasifican otros tipos de delitos que ocacionalmente suceden en la ciudad</p>
+    </div>
+    <div class="arrow_block_inf"> <a href="#">X</a></div>
+    <div id="close_block_inf" class="close_block"> <a href="#">X</a>
+    </div>
+
      <!-- block for arrow under  the map -->
-    <div align="center" id="arrow_show_block"><a href="#">X</a></div>
+    <div align="center" id="arrow_show_block"><a href="#">X</a></div>    
     <div id="indicate_menu"><p>Todos los incidentes registrados</p></div>
     <!-- block menu by month -->
     <div align="center" id="menu_month" >
@@ -40,10 +59,17 @@
         </li>
       </ul>
     </div>
+    
+    
     <!-- block midle content  -->
     <div align="center" id="middle_content">
-      <a id="id_close" href="#">X</a> 
-      <div class='statistic_by_month' id="all_incident_type_statistic"></div>  
+      
+      <div class='statistic_by_month' id="all_incident_type_statistic"> 
+       
+      </div>  
+      <div id="close_block_stac" class="close_block" >
+          <a  href="#">X</a> 
+      </div>
       <div id="block_text_desription">
         <h3>Incidentes Delictivos</h3>
         <p> Actualmente en la ciudad de  Ayacucho los incidentes delictivos son  una actividad cotidiana,como sucede en cualquier otro lugar, la  Sub Gerencia de Seguridad Ciudadana encargado de la seguridad en la  ciudad de Ayacucho pone a disposición sus datos, para el conocimiento de la ciudadania, con finalidad de  prevenir  incidentes futuros en  ciertos lugares de la ciudad.</p>
@@ -79,6 +105,7 @@
         </div>
       </div>          
     </div>
+
 <!-- block for superposition  -->
     <div id='backdrop'></div>
 <!-- block footer  -->
@@ -94,7 +121,7 @@
 
   <div id='opendata' class='popover'>
     <h1>Datos Abiertos</h1>
-    <p>Mediante la presente  aplicación "SEGAYAC" se viene abriendo  datos  con respectos  a los incidentes delictivos,  registrados   desde septiembre del 2012 a la actualidad, por la Municipalidad provincial de Huamanga, Los incidentes delictivos registrados han sido clasificados en: Robo, Intento de Robo, Agresión, Accidentes, Violencia Familiar, Otros, los cuales son los que de manera frecuente suceden en la ciudad.
+    <p>Mediante la presente  aplicación "SEGAYAC" se viene abriendo  datos  con respectos  a los incidentes delictivos,  registrados   desde enero del 2012 a la actualidad, por la Municipalidad provincial de Huamanga, Los incidentes delictivos registrados han sido clasificados en: Robo, Intento de Robo, Agresión, Accidentes, Violencia Familiar, Otros, los cuales son los que de manera frecuente suceden en la ciudad.
     </p>
     <p>La municipalidad Provincial de Humanga es un institución publica que se encuentra en el proceso de adoptar el nuevo paradigma  Datos Abiertos, esta institución  cuenta con una gran cantidad de datos,  que ya anteriormente  han sido otorgados  para su publicación de forma abierta, es el caso de planos catastrales que fueron publicados en <a href="http://www.openstreetmap.org/?lat=-13.16078&lon=-74.22367&zoom=16&layers=M">OpenStreetMap</a>  en Octubre del 2011. por algunos usuarios activos en esta ciudad.
     </p>
@@ -111,7 +138,7 @@
     <p>Los marcadores  sobrepuestos en el mapa fueron desarrollados mediante  <a href="http://mapbox.com/mapbox.js/">mapbox.js</a> 
     </p>
     <p>
-      <span>Se puede encontrar mayor información en:</span>
+      <span>Se puede encontrar más información en:</span>
       <br>
       <span>
       <a href="http://developmentseed.org/blog/2012/sept/13/mapping-dynamic-data-google-spreadsheet/">

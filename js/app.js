@@ -96,33 +96,15 @@ function fmonth(f) {
     var aDate = []; 
     var parent = document.getElementById("ul_menu_month");
      
-    //function for deleting a element that repeat in array aMonth
-    Array.prototype.unique=function(a) {
-        return function(){
-            return this.filter(a);
-        }
-    }(function (a,b,c) {
-            return c.indexOf(a,b+1)<0;
-    });
-
-    //function for sort an element in array a Month
-    Array.prototype.sortNum = function () {
-        return this.sort(function (a, b) { 
-            return a - b; 
-        });
-    } 
-
     //take only month from date in googlespretsheet dd/MM/yyyy
     _.each(f, function (value, key) {
         aDate = f[key].properties.date.split("/");
         aMonth.push(aDate[1]);//push month in array aMoth
     });
-    
-    //deleting a element that repeat in array aMonth
-    aMonth=aMonth.unique();
-    //order from low to high
-    aMonth= aMonth.sortNum();
-    
+   
+    aMonth = _.uniq(aMonth);
+    aMonth=aMonth.sort();
+ 
     //create a tag "li" and  "a" with "id=aMonth[i]" for menu month in the view
     for (var i = 0; i< aMonth.length; i++) {
         var new_li = document.createElement("li");
@@ -346,7 +328,7 @@ $(document).on('ready',function() {
     //get the click on arrow  under  map
     $('#arrow_show_block a').on('click',function (e) {
         $('.statistic_by_month').css('display','block');
-        $('#id_close').show(200);
+        $('#close_block_stac').show(200);
         $('#arrow_show_block').css('display','none');
 
         var id_active_type=$('#ul_menu_type_incident .active').attr('id');
@@ -369,7 +351,7 @@ $(document).on('ready',function() {
     });
 
     //get the click fro close block statistic line
-    $('#id_close').click(function() {
+    $('#close_block_stac').click(function() {
         $(this).hide(200);
         $('.statistic_by_month').css('display','none');
         $('#arrow_show_block').css('display','block');
@@ -442,10 +424,10 @@ $(document).on('ready',function() {
             if ($('#arrow_show_block').css('display')=='none') {
                 $('.statistic_by_month').css('display' , 'block');
                    //hide box  close in statistic
-                $("#id_close").show(200);
+                $("#close_block_stac").show(200);
             } else {
                 $('.statistic_by_month').css('display' , 'none');
-                 $('#id_close').hide(200);
+                 $('#close_block_stac').hide(200);
             }
 
             //agrega una id para mostrar la imagen ejem id=Robo_statistic
@@ -481,6 +463,32 @@ $(document).on('ready',function() {
         $('#opendata').hide(200);
         $('#howto').hide(200);
         $('#close').hide(200);
+    });
+
+
+    $('.arrow_block_inf').click(function (e) {
+        e.preventDefault();
+        $('.block_inf_type').show(200);
+        $('#close_block_inf').show(200);
+        $('.arrow_block_inf').hide(200);
+        $('.zoomer').hide(200);
+
+    });
+
+    $('#close_block_inf').click(function (e) {
+        e.preventDefault();
+        $('.arrow_block_inf').show(200);             
+        $('.zoomer').show(200);
+        $('.block_inf_type').hide(200);
+        $('#close_block_inf').hide(200);
+    });
+
+
+       $('#close_block_stac').click(function (e) {
+        e.preventDefault();
+        $('.close_block_stac').hide(200);             
+        $('.statistic_by_month').hide(200);
+        
     });
 });
 
