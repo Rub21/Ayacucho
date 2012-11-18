@@ -329,7 +329,7 @@ $(document).on('ready',function() {
     $('#arrow_show_block a').on('click',function (e) {
         $('.statistic_by_month').css('display','block');
         $('#close_block_stac').show(200);
-        $('#arrow_show_block').css('display','none');
+        $('#arrow_show_block').css('backgroundColor','#ccc');
 
         var id_active_type=$('#ul_menu_type_incident .active').attr('id');
 
@@ -348,14 +348,15 @@ $(document).on('ready',function() {
             draw_type_incedent(id_active_type+'_statistic',name_active_tipe);
             google.setOnLoadCallback(draw_type_incedent);
         }
+
+
+          //close other block information
+        $('.block_inf_type').css('display','none');
+        $('#arrow_block_inf').css('background-color','#292929');
+        $('#close_block_inf').css('display','none');
+
     });
 
-    //get the click fro close block statistic line
-    $('#close_block_stac').click(function() {
-        $(this).hide(200);
-        $('.statistic_by_month').css('display','none');
-        $('#arrow_show_block').css('display','block');
-    });
 
     // get event click on menu type incident
     $('#ul_menu_type_incident li').click(function (e) {
@@ -371,7 +372,7 @@ $(document).on('ready',function() {
             indicateMenuIncident();
 
            //check to enable block where statistics show a month
-            if ($('.statistic_by_month').css('display') == 'block') {
+            if ($('.close_block_stac').css('display') == 'block') {//esto estyo comentando
                 $('.statistic_by_month').attr('id','all_incident_type_statistic');
                 //draw the graphics statistic
                 draw_all_incedent();
@@ -421,7 +422,7 @@ $(document).on('ready',function() {
             }
 
             // check to enable block where statistics show a month
-            if ($('#arrow_show_block').css('display')=='none') {
+            if ($('#close_block_stac').css('display')=='block') {
                 $('.statistic_by_month').css('display' , 'block');
                    //hide box  close in statistic
                 $("#close_block_stac").show(200);
@@ -466,30 +467,35 @@ $(document).on('ready',function() {
     });
 
 
-    $('.arrow_block_inf').click(function (e) {
+    $('#arrow_block_inf').click(function (e) {
         e.preventDefault();
-        $('.block_inf_type').show(200);
+        $('.block_inf_type').css('display','block');
         $('#close_block_inf').show(200);
-        $('.arrow_block_inf').hide(200);
-        $('.zoomer').hide(200);
+        $('#arrow_block_inf').css('background-color','#ccc');
+
+        //close other block static
+        $('.statistic_by_month').css('display','none');
+        $('#arrow_show_block').css('background-color','#292929');
+        $$('#close_block_stac').css('display','none');
 
     });
 
     $('#close_block_inf').click(function (e) {
         e.preventDefault();
-        $('.arrow_block_inf').show(200);             
+        $('#arrow_block_inf').css('background-color','#292929') ;          
         $('.zoomer').show(200);
         $('.block_inf_type').hide(200);
         $('#close_block_inf').hide(200);
     });
-
-
-       $('#close_block_stac').click(function (e) {
-        e.preventDefault();
-        $('.close_block_stac').hide(200);             
-        $('.statistic_by_month').hide(200);
-        
+ 
+        //get the click fro close block statistic line
+    $('#close_block_stac').click(function() {
+        $(this).hide(200);
+        $('.statistic_by_month').css('display','none');
+        $('#arrow_show_block').css('display','block');
+        $('#arrow_show_block').css('background-color','#292929') ;
     });
+
 });
 
 

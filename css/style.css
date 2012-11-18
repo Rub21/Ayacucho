@@ -49,7 +49,7 @@ a {
   Masthead + Header
 -------------------------------------*/
 #masthead {
-  background-color: #ccc;
+  background-color: #292929;
   height: 82px;
   position: absolute;
   width: 100%;
@@ -59,6 +59,7 @@ a {
 
 #header {
   height: 42px;
+  background-color: #ccc;
   width: 100%;
   -moz-box-shadow: 0 0 5px #999;
   -webkit-box-shadow: 0 0 5px #999;
@@ -101,15 +102,17 @@ a {
   position: absolute;
   right: 0;
   top: 42px;
+  width: 1100px;
   z-index: 7;
   }
 
 #ul_menu_type_incident{
   background-color: #292929;
   color: #fff;
+  float: left;
   height: 40px;
   line-height: 40px;
-  width: 960px;  
+  width: 959px;  
   }
 
 #ul_menu_type_incident li { 
@@ -122,7 +125,7 @@ a {
   color: #fff;
   display: block;
   height: 40px;
-  width: 137.1px;
+  width: 137px;
   transition-duration:1s;
   -moz-transition-duration:1s;
   -webkit-transition-duration:1s;
@@ -139,6 +142,88 @@ a {
   background-color: #bbb;
   color: #005C9C;
   font-weight: bold;
+  }
+
+
+/*-----------------------------------
+Button information
+-------------------------------------*/
+
+#arrow_block_inf {
+  background-image:  url(../images/information.png);
+  background-position:center;
+  background-repeat: no-repeat;
+  display: block;
+  float: left; 
+  height: 40px; 
+  /*margin-left: 30px;  */
+  width: 70px;
+ 
+ }
+
+ #arrow_block_inf a {
+  display: block;
+  font-size: 0px;
+  height: 40px;
+  width: 70px;  
+  }
+
+/*-----------------------------------
+block for estatistic for month 
+-------------------------------------*/
+
+#arrow_show_block {
+  
+  background-image: url(../images/estatistic.png);
+  background-position:center;
+  background-repeat: no-repeat;
+  float: left; 
+  height: 40px;
+  width: 70px; 
+  }
+
+
+#arrow_show_block a {
+  display: block;
+  font-size: 0px;
+  height: 40px;
+  width: 70px;
+
+  }
+
+
+/*-----------------------------------
+block for show graphics line  by month
+-------------------------------------*/
+
+.statistic_by_month{  
+  background: #fff;
+  border: 1px solid #7F8A8C;
+  display: none;
+  height:300px;  
+  left: 0px;
+  margin: 0 auto;
+  position: absolute;
+  right: 0px;
+  top: 82px;
+  width: 1100px;
+  z-index: 6;
+  -moz-box-shadow: 0 0 2px 2px #ddd;
+  -webkit-box-shadow: 0 0 2px 2px#ddd;
+  box-shadow: 0 0 2px 2px #ddd;
+  }
+
+
+/*-----------------------------------
+close block for show graphics line  by month
+-------------------------------------*/
+#close_block_stac{  
+  left: 50%;
+  margin-left: 520px;
+  position: absolute;
+  top: 90px;   
+  z-index: 999;
+
   }
 
 /*-----------------------------------
@@ -193,7 +278,7 @@ block for definition of crimen
 -------------------------------------*/
 
 .block_inf_type{
-  background: #fff;
+ /* background: #fff;
   border: 1px solid #7F8A8C;
   display: none;
   left: 0px;
@@ -209,13 +294,27 @@ block for definition of crimen
   -moz-transition: top 0.5s ease;
   -o-transition: top 0.5s ease;
   -webkit-transition: top 0.5s ease;
-  transition: top 0.5s ease;
+  transition: top 0.5s ease;*/
+  background: #fff;
+  border: 1px solid #7F8A8C;
+  display: none;
+  height:300px;  
+  left: 0px;
+  margin: 0 auto;
+  position: absolute;
+  right: 0px;
+  top: 82px;
+  width: 1100px;
+  z-index: 6;
+  -moz-box-shadow: 0 0 2px 2px #ddd;
+  -webkit-box-shadow: 0 0 2px 2px#ddd;
+  box-shadow: 0 0 2px 2px #ddd;
   }
 
 .block_inf_type h3 {
   color: #005C9C;
   margin-bottom: 1px;
-  margin-top: 1px;
+  margin-top: 10px;
   margin-left: 10px;
   margin-right: 1px;
   font-size: 15px;
@@ -226,33 +325,17 @@ block for definition of crimen
   color: #282828;
   font-family: sans-serif;
   font-size: 12px;
-  line-height: 18px;
-  padding: 1px 5px;
+  line-height: 22px;
+  padding: 1px 35px;
   text-align: justify;
-  width: 280px;
+  /*width: 540px;*/
   }
 
-
-.arrow_block_inf {
-  background-image:  url(../images/row-2.png);
-  display: block;
-  height: 37px;  
-  left: 15px;
-  margin: auto;
-  top: 640px;
-  position: absolute;
-  width: 21px;
-  z-index: 9;
- }
-
-
-
- .arrow_block_inf a {
-  display: block;
-  font-size: 0px;
-  height: 37px;
-  width: 21px;  
-  }
+.for_colum{
+  height: 300px;
+  width: 550px;
+  float: left;
+}
 
 .close_block{
     background-image: url(../images/close.png);
@@ -269,9 +352,11 @@ block for definition of crimen
   }
 
 #close_block_inf{  
-  left: 275px;
+  left: 50%;
+  margin-left: 520px;
   position: absolute;
-  top: 87px;  
+  top: 90px;   
+  z-index: 999; 
  }
 /*-----------------------------------
 vertical Block for horizontal menu month
@@ -440,27 +525,7 @@ Block  for description OPEN DATA
   width: 300px;
   }
 
-/*-----------------------------------
-block for estatistic for month 
--------------------------------------*/
 
-#arrow_show_block {
-  background-image: url(../images/row.png);
-  height: 36px;
-  margin: 0 auto;
-  position: absolute;
-  top: 644px;
-  left: 0;
-  right: 0;
-  width: 74px;
-  z-index: 99;
-  }
-
-#arrow_show_block a {
-  display: block;
-  height: 36px;
-  width: 74px;
-  }
 
 /*-----------------------------------
 block for indicater menu type and menu month
@@ -495,37 +560,6 @@ block for indicater menu type and menu month
   text-transform: uppercase;
   }
 
-/*-----------------------------------
-block for show graphics line  by month
--------------------------------------*/
-
-.statistic_by_month{  
-  background: #fff;
-  border: 1px solid #7F8A8C;
-  display: none;
-  height:300px;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: -340px;
-  width: 1100px;
-  z-index: 6;
-  -moz-box-shadow: 0 0 2px 2px #ddd;
-  -webkit-box-shadow: 0 0 2px 2px#ddd;
-  box-shadow: 0 0 2px 2px #ddd;
-  }
-
-
-/*-----------------------------------
-close block for show graphics line  by month
--------------------------------------*/
-#close_block_stac{  
- position: absolute;
-  top: -334px; 
-  right: 8px;
-
-  z-index: 999;
- }
 
 
 
