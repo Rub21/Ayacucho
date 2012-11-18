@@ -348,8 +348,6 @@ $(document).on('ready',function() {
             draw_type_incedent(id_active_type+'_statistic',name_active_tipe);
             google.setOnLoadCallback(draw_type_incedent);
         }
-
-
           //close other block information
         $('.block_inf_type').css('display','none');
         $('#arrow_block_inf').css('background-color','#292929');

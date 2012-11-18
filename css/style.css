@@ -156,9 +156,7 @@ Button information
   display: block;
   float: left; 
   height: 40px; 
-  /*margin-left: 30px;  */
-  width: 70px;
- 
+  width: 70px; 
  }
 
  #arrow_block_inf a {
@@ -172,8 +170,7 @@ Button information
 block for estatistic for month 
 -------------------------------------*/
 
-#arrow_show_block {
-  
+#arrow_show_block {  
   background-image: url(../images/estatistic.png);
   background-position:center;
   background-repeat: no-repeat;
@@ -188,7 +185,6 @@ block for estatistic for month
   font-size: 0px;
   height: 40px;
   width: 70px;
-
   }
 
 
@@ -278,23 +274,6 @@ block for definition of crimen
 -------------------------------------*/
 
 .block_inf_type{
- /* background: #fff;
-  border: 1px solid #7F8A8C;
-  display: none;
-  left: 0px;
-  height: 596px;
-  max-height: 596px;
-  position: absolute;
-  top: 82px;
-  width: 300px;
-  z-index: 99px;
-  -moz-box-shadow: 0 0 5px #999;
-  -webkit-box-shadow: 0 0 5px #999;
-  box-shadow: 0 0 5px #999;
-  -moz-transition: top 0.5s ease;
-  -o-transition: top 0.5s ease;
-  -webkit-transition: top 0.5s ease;
-  transition: top 0.5s ease;*/
   background: #fff;
   border: 1px solid #7F8A8C;
   display: none;
@@ -328,7 +307,6 @@ block for definition of crimen
   line-height: 22px;
   padding: 1px 35px;
   text-align: justify;
-  /*width: 540px;*/
   }
 
 .for_colum{
@@ -358,6 +336,7 @@ block for definition of crimen
   top: 90px;   
   z-index: 999; 
  }
+ 
 /*-----------------------------------
 vertical Block for horizontal menu month
 -------------------------------------*/
