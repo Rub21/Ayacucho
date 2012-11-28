@@ -90,7 +90,7 @@ a {
   }
 
 /*-----------------------------------
- Horizontal menu
+ Horizontal menu after the header
 -------------------------------------*/
 
 #menu_type_incident{
@@ -146,7 +146,28 @@ a {
 
 
 /*-----------------------------------
-Button information
+Button  to show block,  statistic for month 
+-------------------------------------*/
+
+#arrow_show_block {  
+  background-image: url(../images/estatistic.png);
+  background-position:center;
+  background-repeat: no-repeat;
+  float: left; 
+  height: 40px;
+  width: 70px; 
+  }
+
+
+#arrow_show_block a {
+  display: block;
+  font-size: 0px;
+  height: 40px;
+  width: 70px;
+  }
+
+/*-----------------------------------
+Button  to show block,  about  the definition of the incident  criminal
 -------------------------------------*/
 
 #arrow_block_inf {
@@ -167,29 +188,7 @@ Button information
   }
 
 /*-----------------------------------
-block for estatistic for month 
--------------------------------------*/
-
-#arrow_show_block {  
-  background-image: url(../images/estatistic.png);
-  background-position:center;
-  background-repeat: no-repeat;
-  float: left; 
-  height: 40px;
-  width: 70px; 
-  }
-
-
-#arrow_show_block a {
-  display: block;
-  font-size: 0px;
-  height: 40px;
-  width: 70px;
-  }
-
-
-/*-----------------------------------
-block for show graphics line  by month
+Block to show  statistic for month
 -------------------------------------*/
 
 .statistic_by_month{  
@@ -211,8 +210,9 @@ block for show graphics line  by month
 
 
 /*-----------------------------------
-close block for show graphics line  by month
+Close block  that show graphics line  by month
 -------------------------------------*/
+
 #close_block_stac{  
   left: 50%;
   margin-left: 520px;
@@ -221,56 +221,26 @@ close block for show graphics line  by month
   z-index: 999;
 
   }
-
 /*-----------------------------------
-Map
+Block  to close block graphics line  by month,  or block definition about  of the incidents  criminals
 -------------------------------------*/
 
-#map {
-  background-color: #EBE2D9;
-  height: 598px;
-  position:absolute; 
-  top:82px; 
-  width:100%; 
+  .close_block{
+    background-image: url(../images/close.png);
+    display: none;
+    height: 20px;    
+    width: 19px;
+  }
+
+  .close_block a{
+    display: block;
+    font-size: 0px;
+    height: 20px;    
+    width: 19px
   }
 
 /*-----------------------------------
-loading gif
--------------------------------------*/
-.loading {
-  position: relative;
-  }
-
-.loading:after {
-  background: url(../images/ajax-loader.gif) no-repeat;
-  content: "Cargando...";
-  color: #666;
-  left: 50%;  
-  height: 16px;
-  line-height: 16px;
-  margin-top: -8px;
-  margin-left: -40px;
-  position: absolute;
-  font-size: 12px;
-  top: 50%; 
-  text-indent: 26px;
-  width: 80px;
-  }
-
-#map.loading:after {
-  background-color: #333;
-  background-color: rgba(0,0,0,0.75);
-  background-image: url(../images/ajax-loader-rev.gif);
-  color: #fff;
-  padding: 20px;
-  background-position: 20px 50%;
-  border-radius: 10px;
-  z-index: 999999;
-  position: absolute;
-  }
-
-/*-----------------------------------
-block for definition of crimen
+Block for information about definition  of the incidents  criminals
 -------------------------------------*/
 
 .block_inf_type{
@@ -315,19 +285,11 @@ block for definition of crimen
   float: left;
 }
 
-.close_block{
-    background-image: url(../images/close.png);
-    display: none;
-    height: 20px;    
-    width: 19px;
-  }
 
-  .close_block a{
-    display: block;
-    font-size: 0px;
-    height: 20px;    
-    width: 19px
-  }
+
+/*-----------------------------------
+Close block  that show definition about  of the incidents  criminals
+-------------------------------------*/
 
 #close_block_inf{  
   left: 50%;
@@ -336,9 +298,59 @@ block for definition of crimen
   top: 90px;   
   z-index: 999; 
  }
+
+/*-----------------------------------
+Map
+-------------------------------------*/
+
+#map {
+  background-color: #EBE2D9;
+  height: 598px;
+  position:absolute; 
+  top:82px; 
+  width:100%; 
+  }
+
+/*-----------------------------------
+loading gif
+-------------------------------------*/
+
+.loading {
+  position: relative;
+  }
+
+.loading:after {
+  background: url(../images/ajax-loader.gif) no-repeat;
+  content: "Cargando...";
+  color: #666;
+  left: 50%;  
+  height: 16px;
+  line-height: 16px;
+  margin-top: -8px;
+  margin-left: -40px;
+  position: absolute;
+  font-size: 12px;
+  top: 50%; 
+  text-indent: 26px;
+  width: 80px;
+  }
+
+#map.loading:after {
+  background-color: #333;
+  background-color: rgba(0,0,0,0.75);
+  background-image: url(../images/ajax-loader-rev.gif);
+  color: #fff;
+  padding: 20px;
+  background-position: 20px 50%;
+  border-radius: 10px;
+  z-index: 999999;
+  position: absolute;
+  }
+
+
  
 /*-----------------------------------
-vertical Block for horizontal menu month
+ Horizontal menu after the map or below the map 
 -------------------------------------*/
 
 #menu_month {
@@ -393,8 +405,9 @@ vertical Block for horizontal menu month
   font-weight: bold;
   }
 
+
 /*-----------------------------------
-middle content
+Middle content after  the menu about months
 -------------------------------------*/
 
 #middle_content {
@@ -414,7 +427,7 @@ middle content
   }
 
 /*-----------------------------------
-Block  for description  "Incidentes Delictivos en Ayacucho"
+Block to show  description about  incident . "Incidentes Delictivos en Ayacucho"
 -------------------------------------*/
 #block_text_desription {
   background-color: #ECECEC;
@@ -443,7 +456,7 @@ Block  for description  "Incidentes Delictivos en Ayacucho"
   }
 
 /*-----------------------------------
-Block  for show the statistic box 
+Block to contain the pie chart
 -------------------------------------*/
 
 #block_statistic {
@@ -452,9 +465,8 @@ Block  for show the statistic box
   width: 460px;
   }
 
-
 /*-----------------------------------
-Main imagen statistic
+Block to show the pie chart
 -------------------------------------*/
 #img_total_percentage {
   float: left;
@@ -465,7 +477,7 @@ Main imagen statistic
   }
 
 /*-----------------------------------
-Title from main imagen statistic
+Title  for pie chart
 -------------------------------------*/
 #title_statistic {
   color: #005C9C;
@@ -479,7 +491,7 @@ Title from main imagen statistic
   }
 
 /*-----------------------------------
-number total of incident in main imagen statistic
+Number total of incident, under the  pie chart
 -------------------------------------*/
 
 #num-incident {
@@ -493,7 +505,7 @@ number total of incident in main imagen statistic
   }
 
 /*-----------------------------------
-Block  for description OPEN DATA
+Block to description OPEN DATA
 -------------------------------------*/
 
 #block_downloads {
@@ -507,7 +519,7 @@ Block  for description OPEN DATA
 
 
 /*-----------------------------------
-block for indicater menu type and menu month
+Block  over the map in right ,for indicator menu type of incident and menu month
 -------------------------------------*/
 
 #indicate_menu {  
@@ -543,7 +555,7 @@ block for indicater menu type and menu month
 
 
 /*-----------------------------------
-  butoon fro download
+  Butoon  download data
 -------------------------------------*/
 a.button {
   background: #282828;
@@ -575,7 +587,7 @@ a.button:hover {
   }
 
 /*-----------------------------------
-  block Downloads Section
+  Block Downloads Section
 -------------------------------------*/
 
 #downloads {
@@ -640,7 +652,7 @@ a.button:hover {
   }
 
 /*-----------------------------------
-footer
+Footer
 -------------------------------------*/
 
 #footer{
@@ -693,7 +705,7 @@ footer
   }
 
 /*-----------------------------------
-block  for superposition
+Block  for superposition, over the site
 -------------------------------------*/
 .popover {
   padding: 10px 20px;
@@ -763,7 +775,9 @@ block  for superposition
   z-index: 99999;
   }
 
-#close:hover { background: #444; }
+#close:hover { 
+  background: #444; 
+  }
 
 #backdrop {
   display: none;

@@ -43,7 +43,7 @@ map.setZoomRange(0, 18);
 function mapData(f) { 
     features = f;
     markerLayer = mapbox.markers.layer().features(features);
-    //center markers layer
+    //Center markers layer
     markerLayer.factory(function (m) {
         // Create a marker using the simplestyle factory
         var elem = mapbox.markers.simplestyle_factory(m);
@@ -72,7 +72,7 @@ function mapData(f) {
     });
 
     fmonth(features);    
-    //out url for download  data
+    //Out url for download  data
     download_data();
     $('#map').removeClass('loading');
 }
@@ -88,24 +88,24 @@ function newMarker() {
 }
 
 
-// fmonth is function that, creating a dinamics dates, in the wiev
+// fmonth is function that, creating a dinamics dates, in the wiev(site)
 function fmonth(f) {
-    //array aMonth for take moths from JSON
+    //Array aMonth for take moths from JSON
     var aMonth = [];
-    // array de que se genera de la fecha
+    // Array de que se genera de la fecha
     var aDate = []; 
     var parent = document.getElementById("ul_menu_month");
      
-    //take only month from date in googlespretsheet dd/MM/yyyy
+    //Take only month from date in googlespretsheet dd/MM/yyyy
     _.each(f, function (value, key) {
         aDate = f[key].properties.date.split("/");
-        aMonth.push(aDate[1]);//push month in array aMoth
+        aMonth.push(aDate[1]);//Push month in array aMoth
     });
    
     aMonth = _.uniq(aMonth);
     aMonth=aMonth.sort();
  
-    //create a tag "li" and  "a" with "id=aMonth[i]" for menu month in the view
+    //Create a tag "li" and  "a" with "id=aMonth[i]" for menu month in the view
     for (var i = 0; i< aMonth.length; i++) {
         var new_li = document.createElement("li");
 
@@ -120,7 +120,7 @@ function fmonth(f) {
 //Get data from spreadsheet "resumen"
 mmg_google_docs_spreadsheet_2(data_id, statisticData );
 
-//function get all data from spreadsheet
+//Function to get all data from spreadsheet
 function statisticData(f){
     features_summary=f;
 
@@ -143,11 +143,11 @@ function statisticData(f){
     });
 }
 
-//call the  fuction from  google chart API,  for create main statistic box
+//Call the  fuction from  google chart API,  for create main statistic box
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(draw_main_box);
 
-//function for draw the main statistic box
+//Function for draw the main statistic box
 function draw_main_box() {
     var data = new google.visualization.DataTable(),
         options = { backgroundColor: 'transparent', colors:['#CB3334', '#FFCC33','#653332','#CC6633','#666535','#222222'] },
@@ -166,15 +166,15 @@ function draw_main_box() {
    
     chart.draw(data, options);
     
-    //put the  total number incident on the view
+    //Put the  total number incident on the view
     $('#num-incident').html('Total de incidentes registrados : '+a_cantidad_type[6]); 
-    //delet loading gif       
+    //Delete loading gif      
     $('#block_statistic').removeClass('loading');
 }
 
 
 
-//function to draw line for  all incidents  
+//Function to draw line for  all incidents  
 function draw_all_incedent() {
     var data = google.visualization.arrayToDataTable([]);
     var options = {title: 'GRAFICO DE LINEA DEL TOTAL DE INCIDENCIAS',
@@ -204,7 +204,7 @@ function draw_all_incedent() {
     chart.draw(data, options);
 }
 
-//function to draw  line by type of incidents  
+//Function to draw  line by type of incidents  
 function draw_type_incedent(id_x,i) {            
     var data = google.visualization.arrayToDataTable([]);
     var options = {
@@ -234,7 +234,7 @@ function draw_type_incedent(id_x,i) {
     chart.draw(data, options);
 }
 
-//function for put href  for download data
+//Function to put href  for download data
 function download_data() {
     $('#download_csv').attr('href','https://docs.google.com/a/developmentseed.org/spreadsheet/pub?key='+data_id+'&output=csv');
     $('#download_josn').attr('href','https://spreadsheets.google.com/feeds/list/'+data_id+'/od6/public/values?alt=json-in-script');
@@ -264,17 +264,17 @@ function indicateMenuIncident() {
 
 // Document already
 $(document).on('ready',function() {
-    // get event click on menu month
+    // Get event click on menu month
     $('#ul_menu_month').on('click', 'li', function (e) {
         var id_event_month=e.target.id;
-        //centralizing the map
+        //Gentralizing the map
         map.ease.location({ lat: -13.16039, lon: -74.22574}).zoom(14).optimal();
 
-        //check if click is on all incidents
+        //Gheck if click is on all incidents
         if (id_event_month == "all_incident_month") {
-            //renove all active class 
+            //Renove all active class 
             $('#ul_menu_month li a').removeClass('active');
-            //put in here the active clas
+            //Put in here the active clas
             $('#'+id_event_month).addClass('active');
             indicateMenuIncident();
 
@@ -293,14 +293,14 @@ $(document).on('ready',function() {
             }    
 
         } else {
-            //check if on menu type incident is active option "Todos Incidentes" with id=all_incident_type 
+            //Check if on menu type incident is active option "Todos Incidentes" with id=all_incident_type 
             if ($('#ul_menu_type_incident .active').attr('id') == "all_incident_type") {
                 $('#ul_menu_month li a').removeClass('active');
                 $('#'+id_event_month).addClass('active');
                 indicateMenuIncident();
-                //here classified by date all incidente
+                //Here classified by date all incidente
                 markerLayer.filter(function (features) { 
-                    //create arraydate and this get month from data JSON
+                    //Create arraydate and this get month from data JSON
                     var arraydate = features.properties['date'].split("/");
 
                     if (arraydate[1]== id_event_month)
@@ -310,10 +310,10 @@ $(document).on('ready',function() {
                 $('#ul_menu_month li a').removeClass('active');
                 $('#'+id_event_month).addClass('active');
                 indicateMenuIncident();
-                //here classified by date and by type of incidente
+                //Here classified by date and by type of incidente
                 markerLayer.filter(function (features) { 
                     var arraydate = features.properties['date'].split("/");
-                    //conditional double .. incident type and date
+                    //Conditional double .. incident type and date
                     if (arraydate[1] == e.target.id && features.properties.title.replace(/\s/g,"_") == $('#ul_menu_type_incident .active').attr('id'))
                         return true;                    
                 });
@@ -325,7 +325,7 @@ $(document).on('ready',function() {
     });
 
 
-    //get the click on arrow  under  map
+    //Get the click on button for to show block line statistic
     $('#arrow_show_block a').on('click',function (e) {
         $('.statistic_by_month').css('display','block');
         $('#close_block_stac').show(200);
@@ -333,22 +333,22 @@ $(document).on('ready',function() {
 
         var id_active_type=$('#ul_menu_type_incident .active').attr('id');
 
-        //check on menu type incident is active for show  and draw line for box static all incident
+        //Check on menu type incident is active for show  and draw line for box static all incident
         if (id_active_type == 'all_incident_type') {
-            //call the  function from  google chart API,  for create line statistic for all incident
+            //Call the  function from  google chart API,  for create line statistic for all incident
             $('.statistic_by_month').attr('id','all_incident_type_statistic');
             draw_all_incedent();
             google.setOnLoadCallback(draw_all_incedent);
 
         } else {
-            //here get on menu type incident which is active for draw an show
+            //Here to get on menu type incident which is active for draw an show
             var name_active_tipe=$('#ul_menu_type_incident .active').attr('name')-1;
 
-            //call the  function from  google chart API,  for create line statistic for type incident            
+            //Call the  function from  google chart API,  for create line statistic for type incident            
             draw_type_incedent(id_active_type+'_statistic',name_active_tipe);
             google.setOnLoadCallback(draw_type_incedent);
         }
-          //close other block information
+          //Close other block  about tha definiction of incident
         $('.block_inf_type').css('display','none');
         $('#arrow_block_inf').css('background-color','#292929');
         $('#close_block_inf').css('display','none');
@@ -356,23 +356,23 @@ $(document).on('ready',function() {
     });
 
 
-    // get event click on menu type incident
+    // Get event click on menu type incident
     $('#ul_menu_type_incident li').click(function (e) {
         var id_event_type=e.target.id;
 
-        //centralizing the map
+        //Centralizing the map
         map.ease.location({ lat: -13.16039, lon: -74.22574}).zoom(15).optimal();
 
-        //check is is active on menu type "Mostrar Todos "
+        //Check is is active on menu type "Mostrar Todos "
         if (id_event_type == 'all_incident_type') {
             $('#ul_menu_type_incident li a').removeClass('active');
             $('#'+id_event_type).addClass('active');
             indicateMenuIncident();
 
-           //check to enable block where statistics show a month
+           //Check to enable block where statistics show a month
             if ($('.close_block_stac').css('display') == 'block') {//esto estyo comentando
                 $('.statistic_by_month').attr('id','all_incident_type_statistic');
-                //draw the graphics statistic
+                //Draw the graphics statistic
                 draw_all_incedent();
                 google.setOnLoadCallback(draw_all_incedent);
             }        
@@ -380,7 +380,7 @@ $(document).on('ready',function() {
             if ($('#ul_menu_month .active').attr('id') !='all_incident_month') {
                 markerLayer.filter(function (features) {
                     var arraydate = features.properties['date'].split("/");
-                    //here classified by type of incidente and  by date (month)
+                    //Here classified by type of incidente and  by date (month)
                     if(arraydate[1] == $('#ul_menu_month .active').attr('id'))
                         return true;                    
                 });
@@ -394,14 +394,14 @@ $(document).on('ready',function() {
             }
 
         } else {
-            //check if is active in menu month "Todos" 
+            //Check if is active in menu month "Todos" 
             if ($('#ul_menu_month .active').attr('id') == "all_incident_month") {
                 $('#ul_menu_type_incident li a').removeClass('active');
                 $('#'+id_event_type).addClass('active');
                 indicateMenuIncident();
 
                 markerLayer.filter(function (features) {
-                    // replace the blanks with subindent and compared with the ID    
+                    // Replace the blanks with subindent and compared with the ID    
                     if(features.properties['title'].replace(/\s/g,"_") == id_event_type)                    
                         return true;  
                 });  
@@ -413,28 +413,28 @@ $(document).on('ready',function() {
 
                 markerLayer.filter(function (features) {
                     var arraydate = features.properties['date'].split("/");
-                    //here classified by type of incidente and  by date (month)
+                    //Here classified by type of incidente and  by date (month)
                     if(features.properties['title'].replace(/\s/g,"_") == id_event_type && arraydate[1] == $('#ul_menu_month .active').attr('id'))
                     return true;                    
                 });
             }
 
-            // check to enable block where statistics show a month
+            // Check to enable block where statistics show a month
             if ($('#close_block_stac').css('display')=='block') {
                 $('.statistic_by_month').css('display' , 'block');
-                   //hide box  close in statistic
+                //Hide box  close in statistic
                 $("#close_block_stac").show(200);
             } else {
                 $('.statistic_by_month').css('display' , 'none');
                  $('#close_block_stac').hide(200);
             }
 
-            //agrega una id para mostrar la imagen ejem id=Robo_statistic
+            //Add an id to display the image example id=Robo_statistic
             $('.statistic_by_month').attr('id',id_event_type + '_statistic');
 
-            //obtiene el atributo de name , is important for to show what data we want to show
+            //Take to attribute name, is important to show, which data we want to show
             var number_name = $('#'+id_event_type).attr('name') - 1;
-            //draw the graphics statistic by type of incident
+            //Draw the graphics statistic by type of incident
             draw_type_incedent(id_event_type+'_statistic',number_name);
             google.setOnLoadCallback(draw_type_incedent);           
             return false;         
@@ -442,6 +442,8 @@ $(document).on('ready',function() {
     });
 
 
+
+    ///For show and close the superposition bloc about Open Data and How To 
     $('a[href="#opendata"]').click(function (e) {
         e.preventDefault();
         $('#backdrop').fadeIn(200);
@@ -464,29 +466,27 @@ $(document).on('ready',function() {
         $('#close').hide(200);
     });
 
-
+     //Get the click  to show block about definition of incident
     $('#arrow_block_inf').click(function (e) {
         e.preventDefault();
         $('.block_inf_type').css('display','block');
         $('#close_block_inf').show(200);
-        $('#arrow_block_inf').css('background-color','#ccc');
-
-        //close other block static
+        $('#arrow_block_inf').css('background-color','#ccc');       
         $('.statistic_by_month').css('display','none');
         $('#arrow_show_block').css('background-color','#292929');
         $$('#close_block_stac').css('display','none');
 
     });
 
+    //Get the click to close block about definition of incident
     $('#close_block_inf').click(function (e) {
         e.preventDefault();
         $('#arrow_block_inf').css('background-color','#292929') ;          
-        $('.zoomer').show(200);
-        $('.block_inf_type').hide(200);
+        $('.block_inf_type').css('display','none');
         $('#close_block_inf').hide(200);
     });
  
-        //get the click fro close block statistic line
+    //Get the click to close block statistic line
     $('#close_block_stac').click(function() {
         $(this).hide(200);
         $('.statistic_by_month').css('display','none');
