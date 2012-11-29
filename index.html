@@ -9,12 +9,11 @@
   <body>
     <div id='masthead'>
       <div id='header'>
-        <h1><span>Seg</span>Ayac</h1>
-        <h2>Mejorando el control de incidentes Delictivos en la ciudad de  Ayacucho</h2>
+          <h1><a href='/'><span class='brand'>Seg</span>Ayac <span class='subtitle'>Mejorando el control de incidentes Delictivos en la ciudad de  Ayacucho</span></a></h1>
       </div>
-      <!-- block for menu by type incident -->
-      <div align='center' id='menu_type_incident'>
-        <ul id='ul_menu_type_incident'>
+      <div class='limiter'>
+        <!-- block for menu by type incident -->
+        <ul class='navigation clearfix'>
           <li><a href='#' class='active' id='all_incident_type'>Mostrar Todos</a></li>
           <li><a id='Robo' data-layer='1' href='#'>Robo</a></li>
           <li><a id='Intento_de_Robo' data-layer='2' href='#'>Intento de Robo</a></li>
@@ -22,97 +21,108 @@
           <li><a id='Accidente' data-layer='4' href='#'>Accidentes</a></li>
           <li><a id='Violencia_Familiar' data-layer='5' href='#'>Violencia Familiar</a></li>
           <li><a id='Otros' data-layer='6' href='#'>Otros</a></li>
+          <li><a href='#' id='arrow_show_block' class='graph views'>Gráfico</a></li>
+          <li><a href='#' id='arrow_block_inf' class='views'>Leyenda</a></li>
         </ul>
-        <div id='arrow_show_block'><a href='#'>&times;</a></div>
-        <div id='arrow_block_inf'> <a href='#'>&times;</a></div>
       </div>
     </div>
-    <div align='center' class='statistic_by_month' id='all_incident_type_statistic'>
-    </div>
-    <div align='center' id='close_block_stac' class='close_block'> <a href='#'>&times;</a> </div>
-    <!-- block map -->
-    <div id='map' class='loading'></div>
-    <div class='block_inf_type'>
-      <div class='for_colum'>
-        <h3>Robo</h3>
-        <p>Es un delito contra el patrimonio, que consistente en el apoderamiento de bienes ajenos,empleando para ello fuerza en las cosas o bien violencia o intimidación en la persona.</p>
-        <h3>Intento de Robo</h3>
-        <p>Es similar al  incidentes anterior, con la difeencia de que este es impedido por la persona o por terceros.</p>
-        <h3>Agresión</h3>
-        <p>Ataque violento contra una persona con el objeto de dañarla físicamente y/o a sus bienes.</p>
-      </div>
-      <div class='for_colum'>
-        <h3>Accidente</h3>
-        <p>Cualquier suceso que es provocado por una acción violenta y repentina ocasionada por un agente externo involuntario, y puede o no dar lugar a una lesión corporal.</p>
-        <h3>Violencia Familiar</h3>
-        <p>Es la acción u omisión que el integrante de un grupo familiar ejerce contra otro y que produce un daño no accidental en el aspecto físico o psíquico. </p>
-        <h3>Otros</h3>
-        <p>En este rubro se clasifican otros tipos de delitos que ocacionalmente suceden en la ciudad</p>
-      </div>
-    </div>
-    <div id='close_block_inf' class='close_block'> <a href='#'>&times;</a>
-    </div>
-    <div id='indicate_menu'>
-      <p>Todos los incidentes registrados</p>
-    </div>
-    <!-- block menu by month -->
-    <div align='center' id='menu_month'>
-      <ul id='ul_menu_month'>
-        <li>
-          <a href='#' class='active' id='all_incident_month'>Todos</a>
-        </li>
-      </ul>
-    </div>
-    <!-- block midle content  -->
-    <div align='center' id='middle_content'>
-      <div id='block_text_desription'>
-        <h3>Incidentes Delictivos</h3>
-        <p> Actualmente en la ciudad de  Ayacucho los incidentes delictivos son  una actividad cotidiana,como sucede en cualquier otro lugar, la  Sub Gerencia de Seguridad Ciudadana encargado de la seguridad en la  ciudad de Ayacucho pone a disposición sus datos, para el conocimiento de la ciudadania, con finalidad de  prevenir  incidentes futuros en  ciertos lugares de la ciudad.</p>
-        <p>El mapa de arriba muestra  los puntos donde ocurrieron los incidentes delictivos, estos datos son recolectados, ingresados  y publicados por la Sub Gerencia  de Seguridad Ciudadana de la Municipalidad Provincial de Humanga con la  iniciativa de Datos Abiertos.
-        </p>
-      </div>
-      <div id='block_statistic' class='loading'>
-        <div id='title_statistic'>Porcentaje total de incidentes </div>
-        <div id='img_total_percentage'></div>
-        <div id='num-incident'></div>
-      </div>
-      <!--block downloads -->
-      <div id='block_downloads'>
-        <div id='downloads' class='clearfix'>
-          <div class='limiter'>
-            <div class='col dl'>
-              <div class='dl-data'>.CSV</div>
-              <div>
-                <a id='download_csv' title='Descarga de Datos' class='button'>Descargar Datos</a>
-              </div>
-              <p class='details'>Descargue el documento .csv que contiene todos los datos visibles en este sitio para su uso en un programa de hoja de cálculo o <a href='http://mapbox.com/tilemill'>TileMill</a>.
-              </p>
-            </div>
-            <div class='col dl'>
-              <div class='dl-map'>JSON</div>
-              <div>
-                <a id='download_josn' title='API Feed' class='button'>Datos API Feed</a>
-              </div>
-              <p class='details'>Accede a  los datos visualizados en formato  JSON API para el uso en programación  de una aplicación web.</p>
-            </div>
+
+    <!-- Dropdown: Graph -->
+    <div class='dropdown statistic_by_month' id='all_incident_type_statistic'></div>
+    <div id='close_block_stac' class='close'> <a href='#'>&times;</a> </div>
+
+    <!-- Dropdown: Legend -->
+    <div class='dropdown block_inf_type'>
+      <div class='limiter'>
+        <div class='col col-50'>
+          <div class='inner'>
+            <h3>Robo</h3>
+            <p>Es un delito contra el patrimonio, que consistente en el apoderamiento de bienes ajenos,empleando para ello fuerza en las cosas o bien violencia o intimidación en la persona.</p>
+            <h3>Intento de Robo</h3>
+            <p>Es similar al  incidentes anterior, con la difeencia de que este es impedido por la persona o por terceros.</p>
+            <h3>Agresión</h3>
+            <p>Ataque violento contra una persona con el objeto de dañarla físicamente y/o a sus bienes.</p>
+          </div>
+        </div>
+        <div class='col col-50'>
+          <div class='inner'>
+            <h3>Accidente</h3>
+            <p>Cualquier suceso que es provocado por una acción violenta y repentina ocasionada por un agente externo involuntario, y puede o no dar lugar a una lesión corporal.</p>
+            <h3>Violencia Familiar</h3>
+            <p>Es la acción u omisión que el integrante de un grupo familiar ejerce contra otro y que produce un daño no accidental en el aspecto físico o psíquico. </p>
+            <h3>Otros</h3>
+            <p>En este rubro se clasifican otros tipos de delitos que ocacionalmente suceden en la ciudad</p>
           </div>
         </div>
       </div>
     </div>
-    <!-- block for superposition  -->
-    <div id='backdrop'></div>
-    <!-- block footer  -->
-    <div id='footer'>
-      <div class='center'>
-        <p><a class='button' href='#opendata'>Datos Abiertos</a></p>
-        <p><a class='button' href='#howto'>Como desarrollar</a></p>
-        <div class='separator'>--</div>
-        <span>Desarrollado con <a href='http://tilemill.com' title='TileMill'> TileMill</a></span>
-        <a href='http://mapbox.com/' target='_blank'><img src='images/mapbox.png' alt='' /></a>
+    <div id='close_block_inf' class='close'> <a href='#'>&times;</a></div>
+
+    <!-- Section: Map -->
+    <div class='map-container'>
+      <div id='indicate_menu'>
+        <p>Todos los incidentes registrados</p>
+      </div>
+
+      <div class='introduction'>
+        <div class='inner'>
+          <h3>Incidentes Delictivos</h3>
+          <p> Actualmente en la ciudad de  Ayacucho los incidentes delictivos son  una actividad cotidiana,como sucede en cualquier otro lugar, la  Sub Gerencia de Seguridad Ciudadana encargado de la seguridad en la  ciudad de Ayacucho pone a disposición sus datos, para el conocimiento de la ciudadania, con finalidad de  prevenir  incidentes futuros en  ciertos lugares de la ciudad.</p>
+          <p>El mapa de arriba muestra  los puntos donde ocurrieron los incidentes delictivos, estos datos son recolectados, ingresados  y publicados por la Sub Gerencia  de Seguridad Ciudadana de la Municipalidad Provincial de Humanga con la  iniciativa de Datos Abiertos.
+          </p>
+        </div>
+      </div>
+      <div id='map'></div>
+    </div>
+
+    <!-- Section: Month Selection -->
+    <div class='block clearfix'>
+      <div class='limiter'>
+        <ul id='months' class='navigation clearfix'>
+          <li>
+            <a href='#' class='active' id='all_incident_month'>Todos</a>
+          </li>
+        </ul>
       </div>
     </div>
+
+    <!-- Section: Graph and Downloads -->
+    <div class='section'>
+      <div class='limiter clearfix'>
+
+        <!-- Graph -->
+        <div id='block_statistic' class='col col-50'>
+          <h3>Porcentaje total de incidentes</h3>
+          <div id='img_total_percentage'></div>
+          <div id='num-incident'></div>
+        </div>
+
+        <!-- Downloads -->
+        <div id='block_downloads' class='col col-50'>
+          <a id='download_csv' title='Descarga de Datos' class='button'>Descargar CSV Datos</a>
+          <p>Descargue el documento .csv que contiene todos los datos visibles en este sitio para su uso en un programa de hoja de cálculo o <a href='http://mapbox.com/tilemill'>TileMill</a>.</p>
+
+          <a id='download_josn' title='API Feed' class='button'>Datos .JSON Feed</a>
+          <p>Accede a  los datos visualizados en formato  JSON API para el uso en programación  de una aplicación web.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section: Footer -->
+    <div id='footer'>
+      <div class='limiter'>
+        <a href='#opendata'>Datos Abiertos</a> | <a href='#howto'>Como desarrollar</a>
+        | Desarrollado con <a href='http://tilemill.com'>TileMill</a>
+        <a href='http://mapbox.com/' class='icon mapbox'>MapBox</a>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <div id='backdrop'></div>
+
     <div id='opendata' class='popover'>
-      <h1>Datos Abiertos</h1>
+      <h2>Datos Abiertos</h2>
       <p>Mediante la presente  aplicación "SEGAYAC" se viene abriendo  datos  con respectos  a los incidentes delictivos,  registrados   desde enero del 2012 a la actualidad, por la Municipalidad provincial de Huamanga, Los incidentes delictivos registrados han sido clasificados en: Robo, Intento de Robo, Agresión, Accidentes, Violencia Familiar, Otros, los cuales son los que de manera frecuente suceden en la ciudad.
       </p>
       <p>La municipalidad Provincial de Humanga es un institución publica que se encuentra en el proceso de adoptar el nuevo paradigma  Datos Abiertos, esta institución  cuenta con una gran cantidad de datos,  que ya anteriormente  han sido otorgados  para su publicación de forma abierta, es el caso de planos catastrales que fueron publicados en <a href='http://www.openstreetmap.org/?lat=-13.16078&amp;lon=-74.22367&amp;zoom=16&amp;layers=M'>OpenStreetMap</a>  en Octubre del 2011. por algunos usuarios activos en esta ciudad.
@@ -120,8 +130,9 @@
       <p>La Municipalidad Provincial de Huamanga, esta en el proceso de desarrollo de su portal de Datos Abiertos, que en próximos meses sera presentado a la ciudadanía. Para mas información en: <a href='http://datos.munihuamanga.gob.pe/'>datos.munihuamanga.gob.pe</a>
       </p>
     </div>
+
     <div id='howto' class='popover'>
-      <h1>Como Desarrollar</h1>
+      <h2>Como Desarrollar</h2>
       <p>La presente aplicación fue desarrollado utilizando datos de <a href='http://www.openstreetmap.org/?lat=-13.16078&amp;lon=-74.22367&amp;zoom=16&amp;layers=M'>OpenStreetMap</a>, estos datos fueron procesados con ImpOSM y PostGIS, seguidamente  para el diseño del mapa  se ha utilizado   TileMill con OSM-bright stylesheets, los cuales nos permite empezar en seguida con un mapa hermoso, con un combinación de colores personalizados y limpios  que permitirá  complementar cualquier tipo de información sobrepuestos en el mapa.
       </p>
       <p>Para el almacenamiento  de datos se ha utilizado Google spreadsheet API, que permite acceder a una  spreadsheets publico  a traves de  un jsonp feed. Seguidamente estos datos son recuperados  mediante una <a href='https://github.com/mapbox/mapbox.js/blob/master/extensions/mapbox.converters.googledocs.js, '>extencion</a> de  <a href='http://mapbox.com/mapbox.js/'>mapbox.js</a>
@@ -130,26 +141,23 @@
       </p>
       <p>
         <span>Se puede encontrar más información en:</span>
-        <br />
         <span>
         <a href='http://developmentseed.org/blog/2012/sept/13/mapping-dynamic-data-google-spreadsheet/'>
         Mapping Dynamic Data Directly from a Google Spreadsheet</a>
         </span>
-        <br />
         <span>
         <a href='http://mapbox.com/blog/2012-09-05-mapping-crowdsourced-locations-google-docs/'>
         Mapping Crowdsourced Locations with MapBox and Google Docs</a>
         </span>
       </p>
     </div>
-    <a id='close' href='#close'>✕</a>
-    <!-- scripts-->
+    <a id='close' href='#close'>&times;</a>
+
     <script src='https://www.google.com/jsapi'></script>
     <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
     <script src='ext/jquery.min.js'></script>
     <script src='ext/underscore.min.js'></script>
     <script src='ext/google_docs.js'></script>
     <script src='site.js'></script>
-    <!-- end scripts-->
   </body>
 </html>

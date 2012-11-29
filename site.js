@@ -1,10 +1,11 @@
 var data_id = '0AhfXukqwpMbidDdTU3M0dE5raElpb3M2Y09ZaEJVSmc',
-    map_id = 'examples.map-4l7djmvo',
+    map_id = 'examples.map-20v6611k',
     markerLayer,
     features,
     features_summary,
     interaction,
-    map = mapbox.map('map'),
+    layer = mapbox.layer().id(map_id),
+    map = mapbox.map('map', layer, null, [easey_handlers.DragHandler()]),
     a_tipo_incidente = [],
     a_cantidad_type = [],
     a_cantjanuary = [],
@@ -31,9 +32,9 @@ var data_id = '0AhfXukqwpMbidDdTU3M0dE5raElpb3M2Y09ZaEJVSmc',
         'Setiembre',
         'Octubre',
         'Noviembre',
-        'Diciembre'];
+        'Diciembre'
+    ];
 
-map.addLayer(mapbox.layer().id(map_id));
 mmg_google_docs_spreadsheet_1(data_id, mapData);
 map.centerzoom({
     lat: -13.16048,
@@ -92,7 +93,7 @@ function fmonth(f) {
     var aMonth = [];
     // array de que se genera de la fecha
     var aDate = [];
-    var parent = document.getElementById("ul_menu_month");
+    var parent = document.getElementById('months');
 
     //take only month from date in googlespretsheet dd/MM/yyyy
     _.each(f, function (value, key) {
@@ -106,11 +107,8 @@ function fmonth(f) {
     //create a tag "li" and  "a" with "id=aMonth[i]" for menu month in the view
     for (var i = 0; i < aMonth.length; i++) {
         var new_li = document.createElement("li");
-
         new_li.innerHTML = '<a href= \'#\'  id=\'' + aMonth[i] + '\' > ' + monthNames[aMonth[i] - 1] + '</a>';
-
         parent.appendChild(new_li);
-
     }
 }
 
@@ -173,33 +171,33 @@ function draw_main_box() {
 }
 
 //function to draw line for  all incidents
-function draw_all_incedent() {
+function drawIncidents() {
     var data = google.visualization.arrayToDataTable([]);
     var options = {
         title: 'GRAFICO DE LINEA DEL TOTAL DE INCIDENCIAS',
         hAxis: {
             title: 'Meses',
             titleTextStyle: {
-                color: 'red'
+                color: '#404040'
             },
             textStyle: {
-                color: '#333',
-                fontSize: 11
+                color: '#404040',
+                fontSize: 13
             }
         },
         vAxis: {
             title: 'Cantidad',
             titleTextStyle: {
-                color: 'red'
+                color: '#404040'
             }
         },
         gridlines: {
-            color: '#333',
+            color: '#404040',
             count: 5
         },
         backgroundColor: 'transparent'
     };
-    var chart = new google.visualization.LineChart(document.getElementById("all_incident_type_statistic"));
+    var chart = new google.visualization.LineChart(document.getElementById('all_incident_type_statistic'));
 
     data.addColumn('string', 'Mes');
     data.addColumn('number', 'Total');
@@ -228,21 +226,21 @@ function draw_type_incedent(id_x, i) {
         hAxis: {
             title: 'Meses',
             titleTextStyle: {
-                color: 'red'
+                color: '#404040'
             },
             textStyle: {
-                color: '#333',
+                color: '#404040',
                 fontSize: 11
             }
         },
         vAxis: {
             title: 'Cantidad',
             titleTextStyle: {
-                color: 'red'
+                color: '#404040'
             }
         },
         gridlines: {
-            color: '#333',
+            color: '#404040',
             count: 4
         },
         backgroundColor: 'transparent'
@@ -275,30 +273,31 @@ function download_data() {
 
 function indicateMenuIncident() {
     var show_text = '',
-        type_incident = $('#' + $('#ul_menu_type_incident .active').attr('id')).text(),
-        month_incident = $('#' + $('#ul_menu_month li .active').attr('id')).text();
+        type_incident = $('#' + $('#masthead ul li').find('.active').attr('id')).text(),
+        month_incident = $('#' + $('#month ul li').find('.active').attr('id')).text();
 
-    if (type_incident == 'Mostrar Todos' && month_incident == 'Todos') {
+    if (type_incident === 'Mostrar Todos' && month_incident == 'Todos') {
         $('#indicate_menu').html('<p>Todos los incidentes registrados </p>');
-    } else if (type_incident != 'Mostrar Todos' && month_incident == 'Todos') {
+    } else if (type_incident !== 'Mostrar Todos' && month_incident == 'Todos') {
         $('#indicate_menu').html('<p>' + type_incident + ' de todos los meses</p>');
     } else {
-        if (type_incident == 'Mostrar Todos') {
+        if (type_incident === 'Mostrar Todos') {
             type_incident = 'Todos los Incidentes';
         }
-        if (month_incident == 'Todos') {
+        if (month_incident === 'Todos') {
             month_incident = 'Todos los Meses';
         }
-
         $('#indicate_menu').html('<p>' + type_incident + ' del Mes ' + month_incident + '</p>');
     }
-
 }
 
-// Document already
 $(document).ready(function () {
+
+    var $headerMenu = $('#masthead ul li'),
+        $monthMenu = $('#month ul li');
+
     // get event click on menu month
-    $('#ul_menu_month').on('click', 'li', function (e) {
+    $monthMenu.find('a').on('click', function (e) {
         var id_event_month = e.target.id;
         //centralizing the map
         map.ease.location({
@@ -307,16 +306,16 @@ $(document).ready(function () {
         }).zoom(14).optimal();
 
         //check if click is on all incidents
-        if (id_event_month == "all_incident_month") {
+        if (id_event_month === 'all_incident_month') {
             //renove all active class
-            $('#ul_menu_month li a').removeClass('active');
+            $monthMenu.find('a').removeClass('active');
             //put in here the active clas
             $('#' + id_event_month).addClass('active');
             indicateMenuIncident();
 
-            if ($('#ul_menu_type_incident .active').attr('id') != 'all_incident_type') {
+            if ($headerMenu.find('.active').attr('id') !== 'all_incident_type') {
                 markerLayer.filter(function (features) {
-                    if (features.properties.title.replace(/\s/g, "_") == $('#ul_menu_type_incident .active').attr('id')) return true;
+                    if (features.properties.title.replace(/\s/g, '_') === $headerMenu.find('.active').attr('id')) return true;
                 });
             } else {
                 markerLayer.filter(function (features) {
@@ -328,9 +327,9 @@ $(document).ready(function () {
             }
 
         } else {
-            //check if on menu type incident is active option "Todos Incidentes" with id=all_incident_type
-            if ($('#ul_menu_type_incident .active').attr('id') == 'all_incident_type') {
-                $('#ul_menu_month li a').removeClass('active');
+            // Check if on menu type incident is active option "Todos Incidentes" with id=all_incident_type
+            if ($headerMenu.find('.active').attr('id') === 'all_incident_type') {
+                $monthMenu.find('a').removeClass('active');
                 $('#' + id_event_month).addClass('active');
                 indicateMenuIncident();
                 //here classified by date all incidente
@@ -338,59 +337,54 @@ $(document).ready(function () {
                     //create arraydate and this get month from data JSON
                     var arraydate = features.properties.date.split("/");
 
-                    if (arraydate[1] == id_event_month) return true;
+                    if (arraydate[1] === id_event_month) return true;
                 });
             } else {
-                $('#ul_menu_month li a').removeClass('active');
+                $monthMenu.find('a').removeClass('active');
                 $('#' + id_event_month).addClass('active');
                 indicateMenuIncident();
                 //here classified by date and by type of incidente
                 markerLayer.filter(function (features) {
                     var arraydate = features.properties.date.split('/');
                     //conditional double .. incident type and date
-                    if (arraydate[1] == e.target.id && features.properties.title.replace(/\s/g, '_') == $('#ul_menu_type_incident .active').attr('id')) return true;
+                    if (arraydate[1] === e.target.id && features.properties.title.replace(/\s/g, '_') === $headerMenu.find('.active').attr('id')) return true;
                 });
             }
-
             return false;
         }
-
     });
 
+    // Dropdown: Graphic
+    $('#arrow_show_block').click(function(e) {
+        $('.statistic_by_month, #close_block_stac').show();
 
-    //get the click on arrow  under  map
-    $('#arrow_show_block a').on('click', function (e) {
-        $('.statistic_by_month').css('display', 'block');
-        $('#close_block_stac').show(200);
-        $('#arrow_show_block').css('backgroundColor', '#ccc');
+        var activeMenu = $headerMenu.find('.active').attr('id') || 'all_incident_type';
 
-        var id_active_type = $('#ul_menu_type_incident .active').attr('id');
-
-        //check on menu type incident is active for show  and draw line for box static all incident
-        if (id_active_type == 'all_incident_type') {
-            //call the  function from  google chart API,  for create line statistic for all incident
+        // Check on menu type incident is active for show  and draw line for box static all incident
+        if (activeMenu === 'all_incident_type') {
+            // Call the function from google chart API, for create line statistic for all incident
             $('.statistic_by_month').attr('id', 'all_incident_type_statistic');
-            draw_all_incedent();
-            google.setOnLoadCallback(draw_all_incedent);
+            drawIncidents();
+            google.setOnLoadCallback(drawIncidents);
 
         } else {
-            //here get on menu type incident which is active for draw an show
-            var name_active_tipe = $('#ul_menu_type_incident .active').attr('data-layer') - 1;
+            // Here get on menu type incident which is active for draw an show
+            var name_active_tipe = $headerMenu.find('.active').attr('data-layer') - 1;
 
-            //call the  function from  google chart API,  for create line statistic for type incident
-            draw_type_incedent(id_active_type + '_statistic', name_active_tipe);
+            // Call the function from google chart API, for create line statistic for type incident
+            draw_type_incedent(activeMenu + '_statistic', name_active_tipe);
             google.setOnLoadCallback(draw_type_incedent);
         }
-        //close other block information
+        // Close other block information
         $('.block_inf_type').css('display', 'none');
-        $('#arrow_block_inf').css('background-color', '#292929');
+        $('#arrow_block_inf').find('a').css('background-color', '#292929');
         $('#close_block_inf').css('display', 'none');
 
+        return false;
     });
 
-
     // get event click on menu type incident
-    $('#ul_menu_type_incident li').click(function (e) {
+    $headerMenu.find('a').click(function (e) {
         var id_event_type = e.target.id;
 
         //centralizing the map
@@ -400,24 +394,24 @@ $(document).ready(function () {
         }).zoom(15).optimal();
 
         //check is is active on menu type "Mostrar Todos "
-        if (id_event_type == 'all_incident_type') {
-            $('#ul_menu_type_incident li a').removeClass('active');
+        if (id_event_type === 'all_incident_type') {
+            $headerMenu.find('a').removeClass('active');
             $('#' + id_event_type).addClass('active');
             indicateMenuIncident();
 
             //check to enable block where statistics show a month
-            if ($('.close_block_stac').css('display') == 'block') { //esto estyo comentando
+            if ($('.close_block_stac').css('display') === 'block') { //esto estyo comentando
                 $('.statistic_by_month').attr('id', 'all_incident_type_statistic');
                 //draw the graphics statistic
-                draw_all_incedent();
-                google.setOnLoadCallback(draw_all_incedent);
+                drawIncidents();
+                google.setOnLoadCallback(drawIncidents);
             }
 
-            if ($('#ul_menu_month .active').attr('id') != 'all_incident_month') {
+            if ($monthMenu.find('.active').attr('id') !== 'all_incident_month') {
                 markerLayer.filter(function (features) {
                     var arraydate = features.properties.date.split('/');
                     //here classified by type of incidente and  by date (month)
-                    if (arraydate[1] == $('#ul_menu_month .active').attr('id')) return true;
+                    if (arraydate[1] == $monthMenu.find('.active').attr('id')) return true;
                 });
 
             } else {
@@ -425,41 +419,40 @@ $(document).ready(function () {
                     // Returning true for all markers shows everything.
                     return true;
                 });
-                return false;
             }
 
         } else {
             //check if is active in menu month "Todos"
-            if ($('#ul_menu_month .active').attr('id') == "all_incident_month") {
-                $('#ul_menu_type_incident li a').removeClass('active');
+            if ($monthMenu.find('.active').attr('id') == "all_incident_month") {
+                $headerMenu.find('a').removeClass('active');
                 $('#' + id_event_type).addClass('active');
                 indicateMenuIncident();
 
                 markerLayer.filter(function (features) {
                     // replace the blanks with subindent and compared with the ID
-                    if (features.properties.title.replace(/\s/g, '_') == id_event_type) return true;
+                    if (features.properties.title.replace(/\s/g, '_') === id_event_type) return true;
                 });
 
             } else {
-                $('#ul_menu_type_incident li a').removeClass('active');
+                $headerMenu.find('a').removeClass('active');
                 $('#' + id_event_type).addClass('active');
                 indicateMenuIncident();
 
                 markerLayer.filter(function (features) {
                     var arraydate = features.properties.date.split('/');
                     //here classified by type of incidente and  by date (month)
-                    if (features.properties.title.replace(/\s/g, '_') == id_event_type && arraydate[1] == $('#ul_menu_month .active').attr('id')) return true;
+                    if (features.properties.title.replace(/\s/g, '_') === id_event_type && arraydate[1] == $monthMenu.find('.active').attr('id')) return true;
                 });
             }
 
             // check to enable block where statistics show a month
-            if ($('#close_block_stac').css('display') == 'block') {
+            if ($('#close_block_stac').css('display') === 'block') {
                 $('.statistic_by_month').css('display', 'block');
                 //hide box  close in statistic
-                $("#close_block_stac").show(200);
+                $("#close_block_stac").show();
             } else {
                 $('.statistic_by_month').css('display', 'none');
-                $('#close_block_stac').hide(200);
+                $('#close_block_stac').hide();
             }
 
             //agrega una id para mostrar la imagen ejem id=Robo_statistic
@@ -470,60 +463,52 @@ $(document).ready(function () {
             //draw the graphics statistic by type of incident
             draw_type_incedent(id_event_type + '_statistic', number_name);
             google.setOnLoadCallback(draw_type_incedent);
-            return false;
         }
+
+        return false;
     });
 
-
     $('a[href="#opendata"]').click(function (e) {
-        e.preventDefault();
         $('#backdrop').fadeIn(200);
-        $('#opendata').show(200);
-        $('#close').show(200);
+        $('#opendata, #close').show();
+        return false;
     });
 
     $('a[href="#howto"]').click(function (e) {
-        e.preventDefault();
         $('#backdrop').fadeIn(200);
-        $('#howto').show(200);
-        $('#close').show(200);
+        $('#howto, #close').show();
+        return false;
     });
 
     $('#close').click(function (e) {
-        e.preventDefault();
         $('#backdrop').fadeOut(200);
-        $('#opendata').hide(200);
-        $('#howto').hide(200);
-        $('#close').hide(200);
+        $('#opendata, #howto, #close').hide();
+        return false;
     });
 
-
     $('#arrow_block_inf').click(function (e) {
-        e.preventDefault();
         $('.block_inf_type').css('display', 'block');
-        $('#close_block_inf').show(200);
-        $('#arrow_block_inf').css('background-color', '#ccc');
+        $('#close_block_inf').show();
 
         //close other block static
         $('.statistic_by_month').css('display', 'none');
-        $('#arrow_show_block').css('background-color', '#292929');
-        $$('#close_block_stac').css('display', 'none');
-
+        $('#arrow_show_block').find('a').css('background-color', '#292929');
+        $('#close_block_stac').css('display', 'none');
+        return false;
     });
 
     $('#close_block_inf').click(function (e) {
-        e.preventDefault();
-        $('#arrow_block_inf').css('background-color', '#292929');
-        $('.zoomer').show(200);
-        $('.block_inf_type').hide(200);
-        $('#close_block_inf').hide(200);
+        $('#arrow_block_inf').find('a').css('background-color', '#292929');
+        $('.zoomer').show();
+        $('.block_inf_type').hide();
+        $('#close_block_inf').hide();
+        return false;
     });
 
     //get the click fro close block statistic line
     $('#close_block_stac').click(function () {
-        $(this).hide(200);
-        $('.statistic_by_month').css('display', 'none');
-        $('#arrow_show_block').css('display', 'block');
-        $('#arrow_show_block').css('background-color', '#292929');
+        $('.dropdown').hide();
+        $('.views').css('background-color', 'transparent')
+        $('#arrow_show_block').find('a').css('background-color', 'transparent');
     });
 });
