@@ -1,5 +1,5 @@
 var data_id = '0AhfXukqwpMbidDdTU3M0dE5raElpb3M2Y09ZaEJVSmc',
-    map_id = 'examples.map-20v6611k',
+    map_id = 'examples.map-4l7djmvo',
     markerLayer,
     features,
     features_summary,
@@ -299,8 +299,6 @@ $(document).ready(function () {
     // get event click on menu month
     $('a', $monthMenu).click(function(e) {
 
-        console.log($headerMenu.find('.active').attr('id'));
-
         var id_event_month = e.target.id;
         //centralizing the map
         map.ease.location({
@@ -378,7 +376,6 @@ $(document).ready(function () {
         }
         // Close other block information
         $('.block_inf_type').css('display', 'none');
-        $('#arrow_block_inf').find('a').css('background-color', '#292929');
         $('#close_block_inf').css('display', 'none');
 
         return false;
@@ -386,6 +383,9 @@ $(document).ready(function () {
 
     // get event click on menu type incident
     $headerMenu.find('a').click(function (e) {
+
+        if ($(this).hasClass('views')) return;
+
         var id_event_type = e.target.id;
 
         //centralizing the map
@@ -493,13 +493,11 @@ $(document).ready(function () {
 
         //close other block static
         $('.statistic_by_month').css('display', 'none');
-        $('#arrow_show_block').find('a').css('background-color', '#292929');
         $('#close_block_stac').css('display', 'none');
         return false;
     });
 
     $('#close_block_inf').click(function (e) {
-        $('#arrow_block_inf').find('a').css('background-color', '#292929');
         $('.zoomer').show();
         $('.block_inf_type').hide();
         $('#close_block_inf').hide();
@@ -508,8 +506,8 @@ $(document).ready(function () {
 
     //get the click fro close block statistic line
     $('#close_block_stac').click(function () {
-        $('.dropdown').hide();
-        $('.views').css('background-color', 'transparent')
-        $('#arrow_show_block').find('a').css('background-color', 'transparent');
+        $(this).hide();
+        $('.statistic_by_month').css('display','none');
+        $('#arrow_show_block').css('display','block');
     });
 });
