@@ -68,9 +68,6 @@ h3 {
 p, ul {
   margin:0 0 15px;
   }
-small {
-  font-size:15px;
-  }
 a {
   color:#404040;
   font-weight:bold;
@@ -113,7 +110,6 @@ a {
     }
 
 .brand    { color:#BA003F; }
-
 .subtitle {
   color:#9699A2;
   margin-left:10px;
@@ -221,12 +217,12 @@ a {
 ---------------------------------------------*/
 .map-container {
   position:relative;
-  height:490px;
+  height:480px;
   }
 
 #map {
   background:#f3f3f3;
-  height:490px;
+  height:480px;
   position:absolute;
   top:0;
   left:0;
@@ -385,11 +381,6 @@ a {
 /*-----------------------------------
   Lil Helpers
 -------------------------------------*/
-.centered {
-  display:block;
-  text-align:center;
-  }
-
 /*Markup free clearing
 Details: http: //perishablepress.com/press/2009/12/06/new-clearfix-hack*/
 .clearfix:after {

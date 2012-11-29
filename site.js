@@ -297,7 +297,7 @@ $(document).ready(function () {
         $monthMenu = $('#months');
 
     // get event click on menu month
-    $('a', $monthMenu).click(function(e) {
+    $monthMenu.on('click', 'a', function (e) {
 
         var id_event_month = e.target.id;
         //centralizing the map
