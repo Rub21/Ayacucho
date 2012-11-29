@@ -294,10 +294,13 @@ function indicateMenuIncident() {
 $(document).ready(function () {
 
     var $headerMenu = $('#masthead ul li'),
-        $monthMenu = $('#month ul li');
+        $monthMenu = $('#months');
 
     // get event click on menu month
-    $monthMenu.find('a').on('click', function (e) {
+    $('a', $monthMenu).click(function(e) {
+
+        console.log($headerMenu.find('.active').attr('id'));
+
         var id_event_month = e.target.id;
         //centralizing the map
         map.ease.location({
@@ -322,8 +325,6 @@ $(document).ready(function () {
                     // Returning true for all markers shows everything.
                     return true;
                 });
-
-                return false;
             }
 
         } else {
@@ -350,8 +351,8 @@ $(document).ready(function () {
                     if (arraydate[1] === e.target.id && features.properties.title.replace(/\s/g, '_') === $headerMenu.find('.active').attr('id')) return true;
                 });
             }
-            return false;
         }
+        return false;
     });
 
     // Dropdown: Graphic

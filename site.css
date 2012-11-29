@@ -87,7 +87,7 @@ a {
     }
 
 .button {
-  background:#c1c3c8;
+  background:#7DB6CC;
   width:auto;
   color:#fff;
   cursor:pointer;
@@ -100,15 +100,16 @@ a {
   position:relative;
   text-align:center;
   text-decoration:none;
-  -webkit-transition:background-color 100ms ease-in-out;
-     -moz-transition:background-color 100ms ease-in-out;
-       -o-transition:background-color 100ms ease-in-out;
-          transition:background-color 100ms ease-in-out;
   -webkit-border-radius:2px;
           border-radius:2px;
   }
   .button:hover {
-    background-color:#afb2b8;
+    -webkit-box-shadow:inset 0 2px 2px rgba(0,0,0,0.10);
+            box-shadow:inset 0 2px 2px rgba(0,0,0,0.10);
+    }
+  .button:active {
+    -webkit-box-shadow:inset 0 2px 2px rgba(0,0,0,0.25);
+            box-shadow:inset 0 2px 2px rgba(0,0,0,0.25);
     }
 
 .brand    { color:#BA003F; }
@@ -124,6 +125,7 @@ a {
 .limiter {
   width:960px;
   margin:0 auto;
+  padding:0 10px;
   }
 #masthead {
   height:80px;
@@ -155,8 +157,8 @@ a {
   #masthead {
     position:relative;
     z-index:1000;
-    -webkit-box-shadow:0 4px 8px rgba(0,0,0,0.25);
-            box-shadow:0 4px 8px rgba(0,0,0,0.25);
+    -webkit-box-shadow:0 2px 6px rgba(0,0,0,0.25);
+            box-shadow:0 2px 6px rgba(0,0,0,0.25);
     }
 .icon {
   background:transparent url(img/sprite.png) no-repeat 0 0;
@@ -209,19 +211,22 @@ a {
 
 .section {
   background:#f3f3f3;
-  padding:40px 0;
+  padding:30px 0;
+  }
+#downloads {
+  margin:20px 0 0;
   }
 
 /* Map
 ---------------------------------------------*/
 .map-container {
   position:relative;
-  height:480px;
+  height:490px;
   }
 
 #map {
   background:#f3f3f3;
-  height:480px;
+  height:490px;
   position:absolute;
   top:0;
   left:0;
@@ -317,9 +322,6 @@ a {
   -webkit-box-shadow:0 0 10px rgba(0,0,0,0.8);
           box-shadow:0 0 10px rgba(0,0,0,0.8);
   }
-  .popover a {
-    color:#005C9C;
-    }
 
 #close {
   background:#303030;
