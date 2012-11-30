@@ -41,6 +41,7 @@ map.centerzoom({
     lon: -74.22565
 }, 15);
 map.setZoomRange(0, 18);
+map.ui.attribution.add().content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
 
 // Build map
 function mapData(f) {
