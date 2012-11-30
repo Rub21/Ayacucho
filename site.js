@@ -110,7 +110,6 @@ function fmonth(f) {
 
     aMonth = aMonth.sort();
 
-    console.log(aMonth);
     //create a tag "li" and  "a" with "id=aMonth[i]" for menu month in the view
     for (var i = 0; i < aMonth.length; i++) {
         var new_li = document.createElement('li');
