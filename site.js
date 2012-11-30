@@ -90,6 +90,7 @@ function newMarker() {
 
 // fmonth is function that, creating a dinamics dates, in the wiev
 function fmonth(f) {
+
     //array aMonth for take moths from JSON
     var aMonth = [];
     // array de que se genera de la fecha
@@ -102,12 +103,17 @@ function fmonth(f) {
         aMonth.push(aDate[1]); //push month in array aMoth
     });
 
-    aMonth = _.uniq(aMonth);
+    aMonth = _.chain(aMonth)
+                .uniq()
+                .compact()
+                .value();
+
     aMonth = aMonth.sort();
 
+    console.log(aMonth);
     //create a tag "li" and  "a" with "id=aMonth[i]" for menu month in the view
     for (var i = 0; i < aMonth.length; i++) {
-        var new_li = document.createElement("li");
+        var new_li = document.createElement('li');
         new_li.innerHTML = '<a href= \'#\'  id=\'' + aMonth[i] + '\' > ' + monthNames[aMonth[i] - 1] + '</a>';
         parent.appendChild(new_li);
     }
