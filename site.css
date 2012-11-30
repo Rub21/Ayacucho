@@ -239,6 +239,9 @@ a {
       top:39px;
       }
 
+.map-attribution {
+  left:360px
+  }
 .marker-popup {
   padding:20px 20px 10px;
   color:#404040;
