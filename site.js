@@ -109,7 +109,7 @@ function fmonth(f) {
 
   aMonth = aMonth.sort();
   //create a tag "li" and  "a" with "id=aMonth[i]" for menu month in the view
-  for (var i = 0; i < aMonth.length; i++) {
+  for (var i = 0; i < aMonth.length -1; i++) {
     var new_li = document.createElement('li');
     new_li.innerHTML = '<a href= \'#\'  id=\'' + aMonth[i] + '\' > ' + monthNames[aMonth[i] - 1] + '</a>';
     parent.appendChild(new_li);

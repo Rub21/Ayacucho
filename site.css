@@ -217,12 +217,12 @@ a {
 ---------------------------------------------*/
 .map-container {
   position:relative;
-  height:480px;
+  height:780px;
   }
 
 #map {
   background:#f3f3f3;
-  height:480px;
+  height:780px;
   position:absolute;
   top:0;
   left:0;
@@ -240,7 +240,7 @@ a {
       }
 
 .map-attribution {
-  left:360px
+  left:660px
   }
 .marker-popup {
   padding:20px 20px 10px;
